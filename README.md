@@ -12,7 +12,6 @@ This is my dotfiles configuration, feel free to use them however you want.
 
 Ensure you have the following tools installed before proceeding:
 
-- [ZSH](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 - [Oh My Zsh](https://ohmyz.sh/#install)
 - [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 - [Bat](https://github.com/sharkdp/bat?tab=readme-ov-file#installation)
