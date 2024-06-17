@@ -1,0 +1,30 @@
+#!/bin/bash
+
+dotfiles_dir="$HOME/.dotfiles"
+config_dir="$HOME/.config"
+
+# Check if .dotfiles directory exists
+if [ ! -d "$dotfiles_dir" ]; then
+    echo "Dotfiles is not in the Home directory."
+    exit 1
+fi
+
+# Determine link command based on --force option
+link_cmd="ln -s"
+
+if [[ "$1" == "--force" || "$1" == "-f" ]]; then
+    link_cmd="ln -sf"
+fi
+
+# Create symlinks for zsh configuration
+$link_cmd "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
+$link_cmd "$dotfiles_dir/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
+
+# Ensure .config directory exists and create a symlink for nvim
+mkdir -p "$config_dir"
+
+$link_cmd "$dotfiles_dir/nvim" "$config_dir"
+
+unset dotfiles_dir
+unset config_dir
+unset link_cmd
