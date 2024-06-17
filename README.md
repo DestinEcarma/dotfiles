@@ -15,6 +15,7 @@ Ensure you have the following tools installed before proceeding:
 - [Oh My Zsh](https://ohmyz.sh/#install)
 - [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
 - [Bat](https://github.com/sharkdp/bat?tab=readme-ov-file#installation)
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation)
 - [ZSH Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
 - [ZSH Syntax Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
 
