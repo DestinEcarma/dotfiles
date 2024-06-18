@@ -22,6 +22,6 @@ alias bat="batcat"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Custom profile
-if [ ! -d $HOME/.dotfiles/zsh/.profile ]; then
+if [ -e $HOME/.dotfiles/zsh/.profile ]; then
   source $HOME/.dotfiles/zsh/.profile
 fi
