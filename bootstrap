@@ -18,7 +18,6 @@ fi
 
 # Create symlinks for zsh configuration
 $link_cmd "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
-$link_cmd "$dotfiles_dir/zsh/.p10k.zsh" "$HOME/.p10k.zsh"
 
 # Ensure .config directory exists and create a symlink for nvim
 mkdir -p "$config_dir"
