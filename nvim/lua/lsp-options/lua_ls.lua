@@ -1,5 +1,7 @@
+local lsp_options = require("lsp-options")
+
 return {
-	capabilities = require("cmp_nvim_lsp").default_capabilities(),
+	capabilities = lsp_options.capabilities,
 	settings = {
 		Lua = {
 			runtime = {
