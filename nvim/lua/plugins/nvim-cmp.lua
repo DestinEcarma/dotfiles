@@ -43,4 +43,7 @@ return {
 			"rafamadriz/friendly-snippets",
 		},
 	},
+	{
+		"github/copilot.vim",
+	},
 }
