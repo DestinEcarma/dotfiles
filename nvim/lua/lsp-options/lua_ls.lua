@@ -1,7 +1,4 @@
-local lsp_options = require("lsp-options")
-
 return {
-	capabilities = lsp_options.capabilities,
 	settings = {
 		Lua = {
 			runtime = {
