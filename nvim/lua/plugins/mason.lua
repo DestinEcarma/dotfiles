@@ -46,6 +46,7 @@ return {
 
 			local servers = {
 				lua_ls = require("lsp-options.lua_ls"),
+				cssls = require("lsp-options.cssls"),
 			}
 
 			require("mason-lspconfig").setup_handlers({
