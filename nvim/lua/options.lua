@@ -11,3 +11,5 @@ vim.expandtab = true
 vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.clipboard = "unnamedplus"
+
+vim.g.netrw_list_hide = [[node_modules/]]
