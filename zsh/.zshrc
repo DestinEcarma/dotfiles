@@ -18,6 +18,8 @@ source $ZSH/oh-my-zsh.sh
 # aliases
 alias bat="batcat"
 alias fd="fdfind"
+alias ls="exa"
+alias ll="exa -l"
 
 # Setup powerlevel10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
