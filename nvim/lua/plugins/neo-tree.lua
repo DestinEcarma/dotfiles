@@ -8,6 +8,15 @@ return {
 	},
 
 	config = function()
+		require("neo-tree").setup({
+			filesystem = {
+				filtered_items = {
+					hide_by_name = { "node_modules" },
+					always_show = { ".gitignore" },
+				},
+			},
+		})
+
 		vim.keymap.set("n", "<C-b>", ":Neotree filesystem reveal left<CR>", {})
 	end,
 }
