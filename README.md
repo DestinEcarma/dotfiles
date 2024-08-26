@@ -21,7 +21,7 @@ Ensure you have the following tools installed before proceeding:
 - [Exa](https://github.com/ogham/exa?tab=readme-ov-file#installation)
 - [FdFind](https://github.com/sharkdp/fd?tab=readme-ov-file#installation)
 - [Stylua](https://github.com/JohnnyMorganz/StyLua?tab=readme-ov-file#installation)
-- [Ripgrap](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
+- [Ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
 
 ## Recommended Plugins
 
