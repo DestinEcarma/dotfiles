@@ -22,7 +22,7 @@ vim.keymap.set("n", "<C-T>l", ":tabnext<CR>")
 vim.keymap.set("n", "<C-T>h", ":tabprevious<CR>")
 
 -- Terminal
-vim.keymap.set("n", "<C-`>", ":split<CR><C-W>j:resize -4<CR>:terminal<CR>")
+vim.keymap.set("n", "<C-`>", ":split<CR><C-W>j:resize -4<CR>:edit term://%:p:h//zsh<CR>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- Move Line
