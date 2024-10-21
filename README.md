@@ -27,7 +27,7 @@ Ensure you have the following tools installed before proceeding:
 
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#installation)
 - [ZSH Autosuggestions](https://github.com/zsh-users/zsh-autosuggestions/blob/master/INSTALL.md)
-- [ZSH Syntax Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.mdikk)
+- [ZSH Syntax Highlighting](https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md)
 
 ## Installation
 
