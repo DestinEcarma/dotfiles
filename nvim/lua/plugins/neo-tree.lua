@@ -15,8 +15,15 @@ return {
 					always_show = { ".gitignore" },
 				},
 			},
+			window = {
+				mappings = {
+					["<c-b>"] = "close_window",
+				},
+			},
 		})
 
-		vim.keymap.set("n", "<C-b>", ":Neotree filesystem reveal left<CR>", {})
+		vim.keymap.set("n", "<C-B>", ":Neotree filesystem float<CR>", {
+			silent = true,
+		})
 	end,
 }

@@ -1,5 +1,6 @@
 require("options")
 require("remaps")
+require("terminal")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
