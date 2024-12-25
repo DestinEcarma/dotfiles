@@ -16,12 +16,9 @@ return {
 			},
 
 			on_attach = function(client, bufner)
-				print("None LS Client Name: " .. client.name)
-
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					buffer = bufner,
 					callback = function()
-						print("Formatting on save, with none-ls")
 						vim.lsp.buf.format({ bufnr = bufner, id = client.id })
 					end,
 				})
