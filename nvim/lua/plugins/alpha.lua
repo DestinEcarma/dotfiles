@@ -22,6 +22,7 @@ return {
 			dashboard.button("<leader>fb", " > Buffers", "<cmd>Telescope buffers<CR>"),
 			dashboard.button("<leader>fo", " > Recently Opened Files", "<cmd>Telescope oldfiles<CR>"),
 			dashboard.button("<leader>fh", " > Help Tags", "<cmd>Telescope help_tags<CR>"),
+			dashboard.button("<C-Q>", "󰿅 > Quit", "<cmd>q<CR>"),
 		}
 
 		require("alpha").setup(dashboard.opts)
