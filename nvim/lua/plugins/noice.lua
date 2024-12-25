@@ -7,12 +7,19 @@ return {
 	},
 
 	config = function()
+		require("notify").setup({
+			background_colour = "#000000",
+		})
+
 		require("noice").setup({
 			lsp = {
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 					["vim.lsp.util.stylize_markdown"] = true,
-					["cmp.entry.get_documentation"] = false,
+					["cmp.entry.get_documentation"] = true,
+				},
+				signature = {
+					enabled = false,
 				},
 			},
 			presets = {
@@ -20,7 +27,7 @@ return {
 				command_palette = true,
 				long_message_to_split = true,
 				inc_rename = false,
-				lsp_doc_border = false,
+				lsp_doc_border = true,
 			},
 		})
 
