@@ -50,6 +50,10 @@ return {
 
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
+					if server_name == "rust_analyzer" then
+						return
+					end
+
 					local server_config = servers[server_name] or {}
 
 					server_config.on_attach = on_attach
