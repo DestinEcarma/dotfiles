@@ -1,5 +1,4 @@
 -- Leader
-vim.keymap.set("n", "<leader>pv", ":Ex<CR>")
 
 -- Utils
 vim.keymap.set("n", "<C-S>", ":w<CR>")
