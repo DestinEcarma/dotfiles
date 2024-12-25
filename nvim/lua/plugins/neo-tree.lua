@@ -27,6 +27,7 @@ return {
 
 		vim.keymap.set("n", "<C-B>", ":Neotree filesystem float<CR>", {
 			silent = true,
+			desc = "Toggle file tree",
 		})
 	end,
 }
