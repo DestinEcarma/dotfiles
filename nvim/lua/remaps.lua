@@ -30,3 +30,6 @@ vim.keymap.set("n", "∆", ":m .+1<CR>==")
 vim.keymap.set("n", "˚", ":m .-2<CR>==")
 vim.keymap.set("v", "∆", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "˚", ":m '<-2<CR>gv=gv")
+
+-- Select Allow
+vim.keymap.set("n", "<C-A>", "ggVG")
