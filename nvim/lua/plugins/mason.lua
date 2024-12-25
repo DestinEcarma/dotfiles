@@ -46,7 +46,6 @@ return {
 
 			local servers = {
 				lua_ls = require("lsp-options.lua_ls"),
-				intelephense = require("lsp-options.intelephense"),
 			}
 
 			require("mason-lspconfig").setup_handlers({
