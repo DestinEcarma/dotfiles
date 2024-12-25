@@ -24,6 +24,8 @@ return {
 			dashboard.button("<C-Q>", "󰿅 > Quit", "<cmd>q<CR>"),
 		}
 
+		dashboard.section.footer.val = require("alpha.fortune")()
+
 		require("alpha").setup(dashboard.opts)
 	end,
 }
