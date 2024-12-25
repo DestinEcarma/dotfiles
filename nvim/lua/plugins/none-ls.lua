@@ -7,8 +7,6 @@ return {
 	config = function()
 		local null_ls = require("null-ls")
 
-		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
 		null_ls.setup({
 			sources = {
 				null_ls.builtins.formatting.stylua,
@@ -17,22 +15,19 @@ return {
 				null_ls.builtins.formatting.asmfmt,
 			},
 
-			on_attach = function(client, bufnr)
-				if not client.supports_method("textDocument/formatting") then
-					return
-				end
+			on_attach = function(client, bufner)
+				print("None LS Client Name: " .. client.name)
 
-				vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 				vim.api.nvim_create_autocmd("BufWritePre", {
-					group = augroup,
-					buffer = bufnr,
+					buffer = bufner,
 					callback = function()
-						vim.lsp.buf.format({ bufnr = bufnr })
+						print("Formatting on save, with none-ls")
+						vim.lsp.buf.format({ bufnr = bufner, id = client.id })
 					end,
 				})
 			end,
 		})
 
-		vim.keymap.set("n", "<leader>pf", vim.lsp.buf.format, { desc = "Format" })
+		vim.keymap.set("n", "<leader>nf", vim.lsp.buf.format, { desc = "Format" })
 	end,
 }
