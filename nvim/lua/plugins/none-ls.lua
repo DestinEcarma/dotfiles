@@ -33,6 +33,6 @@ return {
 			end,
 		})
 
-		vim.keymap.set("n", "<leader>ps", vim.lsp.buf.format, {})
+		vim.keymap.set("n", "<leader>pf", vim.lsp.buf.format, { desc = "Format" })
 	end,
 }
