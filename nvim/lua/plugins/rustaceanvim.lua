@@ -29,6 +29,13 @@ return {
 
 					vim.keymap.set("n", "K", hover_actions, merge_tables(opts, { desc = "Display Documentation" }))
 					vim.keymap.set("n", "<leader>ca", code_actions, merge_tables(opts, { desc = "Code Actions" }))
+
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						callback = function()
+							vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
+						end,
+					})
 				end,
 
 				default_settings = {
