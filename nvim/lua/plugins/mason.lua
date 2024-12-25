@@ -36,6 +36,7 @@ return {
 
 			local servers = {
 				lua_ls = require("lsp-options.lua_ls"),
+				remark_ls = require("lsp-options.remark_ls"),
 			}
 
 			local on_attach = require("lsp-options").on_attach
