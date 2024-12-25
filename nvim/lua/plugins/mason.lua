@@ -28,25 +28,15 @@ return {
 				border = "rounded",
 			})
 
-			local function on_attach(_, bufner)
-				local opts = { buffer = bufner }
-
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-				vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-				vim.keymap.set("n", "gI", vim.lsp.buf.implementation, opts)
-				vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, opts)
-
-				vim.keymap.set("n", "<leader>ra", vim.lsp.buf.rename, opts)
-				vim.keymap.set("n", "<leader>D", vim.lsp.buf.type_definition, opts)
-				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-			end
 
 			local lspconfig = require("lspconfig")
 
 			local servers = {
 				lua_ls = require("lsp-options.lua_ls"),
 			}
+
+			local on_attach = require("lsp-options").on_attach
+			local capabilities = require("lsp-options").capabilities
 
 			require("mason-lspconfig").setup_handlers({
 				function(server_name)
@@ -57,7 +47,7 @@ return {
 					local server_config = servers[server_name] or {}
 
 					server_config.on_attach = on_attach
-					server_config.capabilities = require("lsp-options").capabilities
+					server_config.capabilities = capabilities
 
 					lspconfig[server_name].setup(server_config)
 				end,
