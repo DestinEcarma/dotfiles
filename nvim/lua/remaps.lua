@@ -21,10 +21,6 @@ vim.keymap.set("n", "<C-T>n", ":tabnew<CR>")
 vim.keymap.set("n", "<C-T>l", ":tabnext<CR>")
 vim.keymap.set("n", "<C-T>h", ":tabprevious<CR>")
 
--- Terminal
-vim.keymap.set("n", "<leader>pt", ":split<CR><C-W>j:resize -4<CR>:edit term://%:p:h//zsh<CR>")
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
-
 -- Move Line
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
