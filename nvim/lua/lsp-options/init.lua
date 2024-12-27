@@ -5,7 +5,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 return {
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
 
-	on_attach = function(_, bufner)
+	on_attach = function(client, bufner)
 		local opts = { silent = true, buffer = bufner }
 
 		local builtin = require("telescope.builtin")
@@ -24,6 +24,16 @@ return {
 		vim.keymap.set("n", "<leader>ra", vim.lsp.buf.rename, merge_tables(opts, { desc = "Rename" }))
 		vim.keymap.set("n", "<leader>td", vim.lsp.buf.type_definition, merge_tables(opts, { desc = "Type Definition" }))
 		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, merge_tables(opts, { desc = "Code Action" }))
+
+		if client.server_capabilities.inlayHintProvider then
+			vim.keymap.set("n", "<leader>ih", function()
+				local value = vim.lsp.inlay_hint.is_enabled()
+
+				vim.lsp.inlay_hint.enable(not value)
+
+				print("Inlay Hints " .. (value and "disabled" or "enabled"))
+			end, merge_tables(opts, { desc = "Display Inlay Hints" }))
+		end
 
 		-- Telescope
 		vim.keymap.set(
