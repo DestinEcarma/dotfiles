@@ -25,12 +25,12 @@ vim.keymap.set("n", "<C-T>h", "<cmd>tabprevious<CR>", merge_tables(opts, { desc 
 -- Move Line
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<CR>==", merge_tables(opts, { desc = "Move Line Down" }))
 vim.keymap.set("n", "<A-k>", "<cmd>m .-2<CR>==", merge_tables(opts, { desc = "Move Line Up" }))
-vim.keymap.set("v", "<A-j>", "<cmd>m '>+1<CR>gv=gv", merge_tables(opts, { desc = "Move Line Down" }))
-vim.keymap.set("v", "<A-k>", "<cmd>m '<-2<CR>gv=gv", merge_tables(opts, { desc = "Move Line Up" }))
+vim.keymap.set("v", "<A-k>", "<cmd>'<,'>m '<-2' <CR>gv=gv", merge_tables(opts, { desc = "Move Line Up" }))
+vim.keymap.set("v", "<A-j>", "<cmd>'<,'>m '>+1' <CR>gv=gv", merge_tables(opts, { desc = "Move Line Down" }))
 vim.keymap.set("n", "∆", "<cmd>m .+1<CR>==", merge_tables(opts, { desc = "Move Line Down" }))
 vim.keymap.set("n", "˚", "<cmd>m .-2<CR>==", merge_tables(opts, { desc = "Move Line Up" }))
-vim.keymap.set("v", "∆", "<cmd>m '>+1<CR>gv=gv", merge_tables(opts, { desc = "Move Line Down" }))
-vim.keymap.set("v", "˚", "<cmd>m '<-2<CR>gv=gv", merge_tables(opts, { desc = "Move Line Up" }))
+vim.keymap.set("v", "∆", "<cmd>'<,'>m '>+1' <CR>gv=gv", merge_tables(opts, { desc = "Move Line Down" }))
+vim.keymap.set("v", "˚", "<cmd>'<,'>m '<-2<CR>gv=gv", merge_tables(opts, { desc = "Move Line Up" }))
 
 -- Select Allow
 vim.keymap.set("n", "<C-A>", "ggVG", merge_tables(opts, { desc = "Select All" }))
