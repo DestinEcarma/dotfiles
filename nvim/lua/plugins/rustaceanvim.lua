@@ -36,6 +36,8 @@ return {
 							vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
 						end,
 					})
+
+					vim.keymap.set("n", "<leader>nf", vim.lsp.buf.format, { desc = "Format" })
 				end,
 
 				default_settings = {
