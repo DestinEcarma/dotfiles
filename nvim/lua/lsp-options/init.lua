@@ -18,7 +18,7 @@ return {
 		vim.keymap.set(
 			"n",
 			"<leader>e",
-			vim.lsp.diagnostic.get_line_diagnostics,
+			vim.diagnostic.open_float
 			merge_tables(opts, { desc = "Display Line Diagnostics" })
 		)
 		vim.keymap.set("n", "<leader>ra", vim.lsp.buf.rename, merge_tables(opts, { desc = "Rename" }))
