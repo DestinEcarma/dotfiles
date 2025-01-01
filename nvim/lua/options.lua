@@ -14,6 +14,13 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.g.netrw_list_hide = [[node_modules/]]
 
+vim.diagnostic.config({
+	float = {
+		scope = "line",
+		border = "rounded",
+	},
+})
+
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
 	vim.opt.shell = "pwsh"
 	-- vim.opt.shellcmdflag = '-Command'
