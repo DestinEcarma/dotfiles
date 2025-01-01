@@ -24,14 +24,6 @@ return {
 		lazy = true,
 
 		config = function()
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "rounded",
-			})
-
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-				border = "rounded",
-			})
-
 			local lspconfig = require("lspconfig")
 
 			local servers = {
@@ -39,6 +31,7 @@ return {
 				remark_ls = require("lsp-options.remark_ls"),
 			}
 
+			local handlers = require("lsp-options").handlers
 			local on_attach = require("lsp-options").on_attach
 			local capabilities = require("lsp-options").capabilities
 
@@ -50,6 +43,7 @@ return {
 
 					local server_config = servers[server_name] or {}
 
+					server_config.handlers = handlers
 					server_config.on_attach = on_attach
 					server_config.capabilities = capabilities
 

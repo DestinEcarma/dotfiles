@@ -5,6 +5,16 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 return {
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
 
+	handlers = {
+		["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+			border = "rounded",
+		}),
+
+		["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+			border = "rounded",
+		}),
+	},
+
 	on_attach = function(client, bufner)
 		local opts = { silent = true, buffer = bufner }
 
@@ -49,5 +59,13 @@ return {
 			merge_tables(opts, { desc = "Telescope LSP Diagnostics" })
 		)
 		vim.keymap.set("n", "<leader>fq", builtin.quickfix, merge_tables(opts, { desc = "Telescope LSP Quickfix" }))
+
+		-- vim.lsp.handlers["textDocument/codeAction"] = function(_, _, actions)
+		-- 	if not actions or vim.tbl_isempty(actions) then
+		-- 		return
+		-- 	end
+		--
+		-- 	vim.lsp.util.open_floating_preview(actions, "markdown", { border = "rounded" })
+		-- end
 	end,
 }
