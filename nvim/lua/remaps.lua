@@ -3,7 +3,7 @@ local merge_tables = require("utils.merge-tables")
 local opts = { silent = true, noremap = true }
 
 -- Utils
-vim.keymap.set("n", "<C-S>", "<cmd>w<CR>", merge_tables(opts, { desc = "Save" }))
+vim.keymap.set("n", "<C-S>", "<cmd>w<CR><cmd>NoiceDismiss<CR>", merge_tables(opts, { desc = "Save" }))
 vim.keymap.set("n", "<C-Q>", "<cmd>q<CR>", merge_tables(opts, { desc = "Quit" }))
 
 -- Resize Window
