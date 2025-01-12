@@ -1,3 +1,8 @@
+# Custome initiliazation before powerlevel10k
+if [ -e $HOME/.dotfiles/zsh/.init ]; then
+  source $HOME/.dotfiles/zsh/.init
+fi
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
