@@ -22,7 +22,7 @@ $link_cmd "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
 # Ensure .config directory exists and create a symlink for nvim
 mkdir -p "$config_dir"
 
-$link_cmd "$dotfiles_dir/nvim" "$config_dir"
+$link_cmd "$dotfiles_dir/config/nvim" "$config_dir"
 
 unset dotfiles_dir
 unset config_dir
