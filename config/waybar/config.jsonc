@@ -1,0 +1,70 @@
+{
+    "height": 40,
+    "spacing": 20,
+    "margin": "5px 5px 0 5px",
+
+    "modules-left": ["clock"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["group/hardwares1", "group/hardwares2", "custom/logout"],
+
+    ///////////////////
+    // Right Modules //
+    ///////////////////
+
+    "clock": {
+        "format": "  {:%I:%M %p}",
+        "format-alt": "󰃭  {:%b %d, %Y}",
+        "tooltip-format": "󰃭  {:%B %d, %Y    %I:%M %p}"
+    },
+
+    ////////////////////
+    // Center Modules //
+    ////////////////////
+
+    //////////////////
+    // Left Modules //
+    //////////////////
+
+    // Hardwares 1
+    "cpu": {
+        "format": "  {usage}%"
+    },
+    "memory": {
+        "format": "  {percentage}%"
+    },
+
+    // Hardwares 2
+    "network": {
+        "format": "{ifname}",
+        "format-ethernet": "",
+        "format-wifi": "  {signalStrength}%",
+        "tooltip-format": "  {bandwidthUpBytes}    {bandwidthDownBytes}",
+        "interval": 30,
+        "on-click": "exec nm-connection-editor"
+    },
+    "bluetooth": {
+        "format-on": "<span size='large'>󰂯</span>",
+        "format-off": "<span size='large'>󰂲</span>",
+        "format-no-controller": "",
+        "format-connected": "<span size='large'></span> {status}",
+        "on-click": "exec blueman-manager"
+    },
+    "battery": {
+        "format": "<span size='large'>{icon}</span> {capacity}%",
+        "format-icons": ["󰂎", "󰁼", "󰁾", "󰂀", "󰁹"]
+    },
+    "custom/logout": {
+        "format": "",
+        "on-click": "exec wlogout"
+    },
+
+    // Group
+    "group/hardwares1": {
+        "orientation": "horizontal",
+        "modules": ["cpu", "memory"]
+    },
+    "group/hardwares2": {
+        "orientation": "horizontal",
+        "modules": ["network", "bluetooth", "battery"]
+    }
+}
