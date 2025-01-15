@@ -1,9 +1,10 @@
 @import "/home/destin/.cache/wal/colors-waybar.css";
 
 @define-color bg alpha(black, 0.5);
-@define-color border-color @color1;
+@define-color border-color @color2;
 @define-color active-button alpha(@color6, 0.5);
-@define-color inactive-button alpha(@color1, 0.5);
+@define-color hover-button alpha(@color4, 0.5);
+@define-color inactive-button alpha(@color2, 0.5);
 
 * {
     font-family: "JetBrains Mono Nerd Font", monospace;
@@ -58,4 +59,8 @@ window#waybar {
 #workspaces button.active {
     background-color: @active-button;
     padding: 0 20px;
+}
+
+#workspaces button:hover {
+    background-color: @hover-button;
 }
