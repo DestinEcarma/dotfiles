@@ -25,14 +25,16 @@ window#waybar {
 #workspaces,
 #hardwares1,
 #hardwares2,
-#custom-logout {
+#custom-logout,
+#custom-notification {
     background-color: @bg;
     border: 2px solid @border-color;
     border-radius: 20px;
     padding: 0 20px;
 }
 
-#custom-logout {
+#custom-logout,
+#custom-notification {
     padding-left: 14px;
     padding-right: 16px;
 }
