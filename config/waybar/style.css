@@ -1,0 +1,61 @@
+@import "/home/destin/.cache/wal/colors-waybar.css";
+
+@define-color bg alpha(black, 0.5);
+@define-color border-color @color1;
+@define-color active-button alpha(@color6, 0.5);
+@define-color inactive-button alpha(@color1, 0.5);
+
+* {
+    font-family: "JetBrains Mono Nerd Font", monospace;
+    font-weight: 600;
+    font-size: 11px;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+#cpu,
+#network,
+#bluetooth {
+    margin-right: 20px;
+}
+
+#clock,
+#workspaces,
+#hardwares1,
+#hardwares2,
+#custom-logout,
+#custom-notification {
+    background-color: @bg;
+    border: 2px solid @border-color;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+#custom-logout,
+#custom-notification {
+    padding-left: 14px;
+    padding-right: 16px;
+}
+
+#workspaces {
+    padding: 5px;
+}
+
+#workspaces button {
+    background-color: @inactive-button;
+    color: transparent;
+    padding: 0 4px;
+    border-radius: 20px;
+    transition: all 200ms ease-in-out;
+}
+
+#workspaces button:not(:last-child) {
+    margin-right: 5px;
+}
+
+#workspaces button.active {
+    background-color: @active-button;
+    padding: 0 20px;
+}

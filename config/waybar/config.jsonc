@@ -1,0 +1,94 @@
+{
+    "reload_style_on_change": true,
+
+    "height": 40,
+    "spacing": 20,
+    "margin": "5px 5px 0 5px",
+
+    "modules-left": ["clock"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": [
+        "group/hardwares1",
+        "group/hardwares2",
+        "custom/notification",
+        "custom/logout"
+    ],
+
+    ///////////////////
+    // Right Modules //
+    ///////////////////
+
+    "clock": {
+        "format": "  {:%I:%M %p}",
+        "format-alt": "󰃭  {:%b %d, %Y}",
+        "tooltip-format": "󰃭  {:%B %d, %Y    %I:%M %p}"
+    },
+
+    ////////////////////
+    // Center Modules //
+    ////////////////////
+
+    //////////////////
+    // Left Modules //
+    //////////////////
+
+    // Hardwares 1
+    "cpu": {
+        "format": "  {usage}%"
+    },
+    "memory": {
+        "format": "  {percentage}%"
+    },
+
+    // Hardwares 2
+    "network": {
+        "format": "{ifname}",
+        "format-ethernet": "",
+        "format-wifi": "  {signalStrength}%",
+        "tooltip-format": "  {bandwidthUpBytes}    {bandwidthDownBytes}",
+        "interval": 30,
+        "on-click": "nm-connection-editor"
+    },
+    "bluetooth": {
+        "format-on": "<span size='large'>󰂯</span>",
+        "format-off": "<span size='large'>󰂲</span>",
+        "format-no-controller": "",
+        "format-connected": "<span size='large'></span> {status}",
+        "on-click": "blueman-manager"
+    },
+    "battery": {
+        "format": "<span size='large'>{icon}</span> {capacity}%",
+        "format-icons": ["󰂎", "󰁼", "󰁾", "󰂀", "󰁹"]
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "<span size='large'>{icon}</span>",
+        "format-icons": {
+            "notification": "󰅸",
+            "none": "󰂜",
+            "dnd-notification": "󰅸",
+            "dnd-none": "󱏨",
+            "inhibited-notification": "󰅸",
+            "inhibited-none": "󰂜",
+            "dnd-inhibited-notification": "󰅸",
+            "dnd-inhibited-none": "󱏨"
+        },
+        "exec": "swaync-client -swb",
+        "return-type": "json",
+        "on-click": "swaync-client -op"
+    },
+    "custom/logout": {
+        "format": "",
+        "on-click": "wlogout"
+    },
+
+    // Group
+    "group/hardwares1": {
+        "orientation": "horizontal",
+        "modules": ["cpu", "memory"]
+    },
+    "group/hardwares2": {
+        "orientation": "horizontal",
+        "modules": ["network", "bluetooth", "battery"]
+    }
+}
