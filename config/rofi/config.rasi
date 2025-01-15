@@ -8,11 +8,11 @@ configuration {
 * {
 	background: transparent;
 	color: @foreground;
-	border-color: @urgent-background;
+	border-color: @active-background;
 }
 
 window {
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.75);
 	border: 2px;
 	border-radius: 10px;
 }
