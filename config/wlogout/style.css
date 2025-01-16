@@ -1,0 +1,75 @@
+@import "/home/destin/.cache/wal/colors-waybar.css";
+
+@define-color border-color @color2;
+@define-color hover-background @color3;
+
+* {
+    background-image: none;
+    box-shadow: none;
+}
+
+window {
+    background-color: alpha(@background, 0.75);
+}
+
+button {
+    border: 2px solid @border-color;
+    border-radius: 20px;
+    text-decoration-color: @foreground;
+    color: @foreground;
+    background-color: alpha(@background, 1);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25%;
+    margin: 10px;
+    transition: background-color 200ms ease;
+}
+
+button:focus,
+button:active,
+button:hover {
+    background-color: @hover-background;
+    outline-style: none;
+}
+
+#lock {
+    background-image: image(
+        url("/usr/share/wlogout/icons/lock.png"),
+        url("/usr/local/share/wlogout/icons/lock.png")
+    );
+}
+
+#logout {
+    background-image: image(
+        url("/usr/share/wlogout/icons/logout.png"),
+        url("/usr/local/share/wlogout/icons/logout.png")
+    );
+}
+
+#suspend {
+    background-image: image(
+        url("/usr/share/wlogout/icons/suspend.png"),
+        url("/usr/local/share/wlogout/icons/suspend.png")
+    );
+}
+
+#hibernate {
+    background-image: image(
+        url("/usr/share/wlogout/icons/hibernate.png"),
+        url("/usr/local/share/wlogout/icons/hibernate.png")
+    );
+}
+
+#shutdown {
+    background-image: image(
+        url("/usr/share/wlogout/icons/shutdown.png"),
+        url("/usr/local/share/wlogout/icons/shutdown.png")
+    );
+}
+
+#reboot {
+    background-image: image(
+        url("/usr/share/wlogout/icons/reboot.png"),
+        url("/usr/local/share/wlogout/icons/reboot.png")
+    );
+}
