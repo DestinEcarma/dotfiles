@@ -45,6 +45,7 @@
         "format": "{ifname}",
         "format-ethernet": "",
         "format-wifi": "  {signalStrength}%",
+        "format-disconnected": "<span size='large'></span>",
         "tooltip-format": "  {bandwidthUpBytes}    {bandwidthDownBytes}",
         "interval": 30,
         "on-click": "nm-connection-editor"
