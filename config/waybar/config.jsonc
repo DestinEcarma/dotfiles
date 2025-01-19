@@ -1,5 +1,6 @@
 {
     "reload_style_on_change": true,
+	"output": "DP-3",
 
     "height": 40,
     "spacing": 20,
@@ -53,7 +54,7 @@
     "bluetooth": {
         "format-on": "<span size='large'>󰂯</span>",
         "format-off": "<span size='large'>󰂲</span>",
-        "format-no-controller": "",
+        "format-no-controller": "<span size='large'>󰂲</span>",
         "format-connected": "<span size='large'></span> {status}",
         "on-click": "blueman-manager"
     },
