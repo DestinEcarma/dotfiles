@@ -17,9 +17,11 @@ window#waybar {
 }
 
 #cpu,
+#memory,
 #battery,
 #network,
-#bluetooth {
+#bluetooth,
+#wireplumber {
     margin: 0 10px;
 }
 
