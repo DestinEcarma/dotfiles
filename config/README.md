@@ -11,6 +11,7 @@ This section are a prerequisite tools for each configuration file.
     - [`nautilus`](https://github.com/GNOME/nautilus) - This is what is set on the **key bindings** for `MOD + E`. You can use any file manager that you prefer.
     - [`gnome-polkit`](https://gitlab.gnome.org/Archive/policykit-gnome) - You can use any polkit agent that you prefer.
     - [`hyprpaper`](https://github.com/hyprwm/hyprpaper) - This will serve as the wallpaper utility.
+    - [`hyprshot`](https://github.com/Gustash/Hyprshot) - This will serve as the screenshot utility.
 - [`kitty`](https://github.com/kovidgoyal/kitty) - `hyprland` uses `kitty` as the default terminal emulator. You can change this to your preferred terminal emulator. This is just my personal config.
 - [`nvim`](https://github.com/neovim/neovim)
     - [`fd`](https://github.com/sharkdp/fd)
