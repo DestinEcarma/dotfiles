@@ -17,9 +17,10 @@ window#waybar {
 }
 
 #cpu,
+#battery,
 #network,
 #bluetooth {
-    margin-right: 20px;
+    margin: 0 10px;
 }
 
 #clock,
@@ -32,6 +33,11 @@ window#waybar {
     border: 2px solid @border-color;
     border-radius: 20px;
     padding: 0 20px;
+}
+
+#hardwares1,
+#hardwares2 {
+    padding: 0 10px;
 }
 
 #custom-logout,
