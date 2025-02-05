@@ -14,7 +14,7 @@ return {
 				null_ls.builtins.formatting.clang_format,
 				null_ls.builtins.formatting.asmfmt,
 				null_ls.builtins.formatting.black.with({
-					extra_args = { "--line-length", "80" },
+					extra_args = { "--line-length", "79" },
 				}),
 				null_ls.builtins.formatting.isort,
 			},
