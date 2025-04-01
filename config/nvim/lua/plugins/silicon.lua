@@ -7,9 +7,9 @@ return {
 	},
 
 	init = function()
-		local wk = require("which-key")
+		local silicon = require("silicon")
 
-		wk.add({
+		require("which-key").add({
 			mode = { "v" },
 			{ "<leader>s", group = "Silicon" },
 			{
