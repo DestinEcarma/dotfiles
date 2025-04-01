@@ -14,16 +14,12 @@ return {
 			{ "<leader>s", group = "Silicon" },
 			{
 				"<leader>sc",
-				function()
-					require("nvim-silicon").clip()
-				end,
+				silicon.clip,
 				desc = "Copy code screenshot to clipboard",
 			},
 			{
 				"<leader>ss",
-				function()
-					require("nvim-silicon").shoot()
-				end,
+				silicon.shoot,
 				desc = "Create code screenshot",
 			},
 		})
