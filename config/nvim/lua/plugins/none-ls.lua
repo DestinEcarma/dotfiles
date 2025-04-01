@@ -19,11 +19,11 @@ return {
 				null_ls.builtins.formatting.isort,
 			},
 
-			on_attach = function(client, bufner)
+			on_attach = function(client, bufnr)
 				vim.api.nvim_create_autocmd("BufWritePre", {
-					buffer = bufner,
+					buffer = bufnr,
 					callback = function()
-						vim.lsp.buf.format({ bufnr = bufner, id = client.id })
+						vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
 					end,
 				})
 			end,
