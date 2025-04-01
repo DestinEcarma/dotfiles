@@ -6,13 +6,13 @@ return {
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
 
 	handlers = {
-		["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+		["textDocument/hover"] = {
 			border = "rounded",
-		}),
+		},
 
-		["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+		["textDocument/signatureHelp"] = {
 			border = "rounded",
-		}),
+		},
 	},
 
 	on_attach = function(client, bufner)
