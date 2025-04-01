@@ -1,9 +1,5 @@
 return {
 	"michaelrommel/nvim-silicon",
-	dependencies = {
-		"folke/which-key.nvim",
-	},
-
 	lazy = true,
 	cmd = "Silicon",
 	opts = {
