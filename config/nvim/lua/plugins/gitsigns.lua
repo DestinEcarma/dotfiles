@@ -3,16 +3,20 @@ return {
 
 	config = function()
 		require("gitsigns").setup({
-			on_attach = function(bufnr)
+			on_attach = function(_)
 				local gitsigns = require("gitsigns")
 
-				local opts = { buffer = bufnr }
-
-				vim.keymap.set("n", "<leader>hp", gitsigns.preview_hunk, opts)
-				vim.keymap.set("n", "<leader>tb", gitsigns.toggle_current_line_blame, opts)
-				vim.keymap.set("n", "<leader>hb", function()
+				local function blame_line()
 					gitsigns.blame_line({ full = true })
-				end, opts)
+				end
+
+				require("which-key").add({
+					mode = { "n" },
+					{ "<leader>g", group = "Git" },
+					{ "<leader>gp", gitsigns.preview_hunk, desc = "Preview hunk" },
+					{ "<leader>gl", gitsigns.toggle_current_line_blame, desc = "Toggle current line blame" },
+					{ "<leader>gb", blame_line, desc = "Blame line" },
+				})
 			end,
 		})
 	end,

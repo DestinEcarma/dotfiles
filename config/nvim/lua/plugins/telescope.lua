@@ -7,9 +7,26 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 	},
 
+	init = function()
+		local builtin = require("telescope.builtin")
+
+		require("which-key").add({
+			mode = { "n" },
+			{ "<C-P", builtin.find_files, desc = "Telescope find files" },
+			{ "<C-F>", builtin.live_grep, desc = "Telescope live grep" },
+
+			{
+				mode = { "n" },
+				{ "<leader>f", group = "Telescope" },
+				{ "<leader>fb", builtin.buffers, desc = "Telescope buffers" },
+				{ "<leader>fo", builtin.oldfiles, desc = "Telescope oldfiles" },
+				{ "<leader>fh", builtin.help_tags, desc = "Telescope help tags" },
+			},
+		})
+	end,
+
 	config = function()
 		local telescope = require("telescope")
-		local builtin = require("telescope.builtin")
 
 		telescope.setup({
 			defaults = {
@@ -23,11 +40,5 @@ return {
 		})
 
 		telescope.load_extension("ui-select")
-
-		vim.keymap.set("n", "<C-P>", builtin.find_files, { desc = "Telescope find files" })
-		vim.keymap.set("n", "<C-F>", builtin.live_grep, { desc = "Telescope live grep" })
-		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-		vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Telescope oldfiles" })
-		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 	end,
 }

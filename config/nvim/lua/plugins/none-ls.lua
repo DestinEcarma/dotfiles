@@ -29,6 +29,8 @@ return {
 			end,
 		})
 
-		vim.keymap.set("n", "<leader>nf", vim.lsp.buf.format, { desc = "Format" })
+		require("which-key").add({
+			{ "<leader>lf", vim.lsp.buf.format, desc = "Format", mode = "n" },
+		})
 	end,
 }
