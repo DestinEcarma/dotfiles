@@ -6,6 +6,12 @@ return {
 		"rcarriga/nvim-notify",
 	},
 
+	init = function()
+		require("which-key").add({
+			{ "<leader>nd", "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice", mode = { "n" } },
+		})
+	end,
+
 	config = function()
 		require("notify").setup({
 			background_colour = "#000000",
@@ -30,12 +36,5 @@ return {
 				lsp_doc_border = true,
 			},
 		})
-
-		vim.keymap.set(
-			"n",
-			"<leader>nd",
-			"<cmd>NoiceDismiss<CR>",
-			{ silent = true, noremap = true, desc = "Dismiss Noice" }
-		)
 	end,
 }

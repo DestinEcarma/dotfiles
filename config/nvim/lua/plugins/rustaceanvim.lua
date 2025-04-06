@@ -17,15 +17,16 @@ return {
 					local code_actions = "<cmd>RustLsp codeAction<CR>"
 
 					require("which-key").add({
-						mode = "n",
-						{ "K", hover_actions, desc = "Display documentation" },
+						mode = { "n" },
+						{ "K", hover_actions, desc = "Display Documentation" },
+						{ "<leader>e", diagnostics, desc = "Display Line Diagnostics" },
+						{ "<leader>ca", code_actions, desc = "Code Actions" },
 
-						{
-							{ "<leader>l", group = "LSP" },
-							{ "<leader>ld", diagnostics, desc = "Display line diagnostics" },
-							{ "<leader>lc", code_actions, desc = "Code actions" },
-							{ "<leader>lf", vim.lsp.buf.format, desc = "Format" },
-						},
+						{ "<leader>l", group = "LSP" },
+						{ "<leader>lK", hover_actions, desc = "Display Documentation" },
+						{ "<leader>le", diagnostics, desc = "Display Line Diagnostics" },
+						{ "<leader>lca", code_actions, desc = "Code Actions" },
+						{ "<leader>lf", vim.lsp.buf.format, desc = "Format" },
 					})
 
 					vim.api.nvim_create_autocmd("BufWritePre", {

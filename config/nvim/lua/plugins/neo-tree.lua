@@ -7,6 +7,12 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 
+	init = function()
+		require("which-key").add({
+			{ "<C-B>", "<cmd>Neotree filesystem float<CR>", desc = "Toggle file tree", mode = { "n" } },
+		})
+	end,
+
 	config = function()
 		require("neo-tree").setup({
 			close_if_last_window = true,
@@ -23,11 +29,6 @@ return {
 					["<c-b>"] = "close_window",
 				},
 			},
-		})
-
-		vim.keymap.set("n", "<C-B>", "<cmd>Neotree filesystem float<CR>", {
-			silent = true,
-			desc = "Toggle file tree",
 		})
 	end,
 }

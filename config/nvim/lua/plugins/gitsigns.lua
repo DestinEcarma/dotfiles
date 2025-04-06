@@ -13,8 +13,8 @@ return {
 				require("which-key").add({
 					mode = { "n" },
 					{ "<leader>g", group = "Git" },
-					{ "<leader>gp", gitsigns.preview_hunk, desc = "Preview hunk" },
-					{ "<leader>gl", gitsigns.toggle_current_line_blame, desc = "Toggle current line blame" },
+					{ "<leader>gh", gitsigns.preview_hunk, desc = "Preview hunk" },
+					{ "<leader>gtb", gitsigns.toggle_current_line_blame, desc = "Toggle blame" },
 					{ "<leader>gb", blame_line, desc = "Blame line" },
 				})
 			end,

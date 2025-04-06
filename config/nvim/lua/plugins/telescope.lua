@@ -12,16 +12,15 @@ return {
 
 		require("which-key").add({
 			mode = { "n" },
-			{ "<C-P", builtin.find_files, desc = "Telescope find files" },
-			{ "<C-F>", builtin.live_grep, desc = "Telescope live grep" },
+			{ "<C-P>", builtin.find_files, desc = "Find files" },
+			{ "<C-F>", builtin.live_grep, desc = "Live grep" },
 
-			{
-				mode = { "n" },
-				{ "<leader>f", group = "Telescope" },
-				{ "<leader>fb", builtin.buffers, desc = "Telescope buffers" },
-				{ "<leader>fo", builtin.oldfiles, desc = "Telescope oldfiles" },
-				{ "<leader>fh", builtin.help_tags, desc = "Telescope help tags" },
-			},
+			{ "<leader>f", group = "Telescope" },
+			{ "<leader>fp", builtin.find_files, desc = "Find files" },
+			{ "<leader>ff", builtin.live_grep, desc = "Live grep" },
+			{ "<leader>fb", builtin.buffers, desc = "Buffers" },
+			{ "<leader>fo", builtin.oldfiles, desc = "Oldfiles" },
+			{ "<leader>fh", builtin.help_tags, desc = "Help tags" },
 		})
 	end,
 

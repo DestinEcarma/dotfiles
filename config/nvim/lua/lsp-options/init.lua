@@ -19,29 +19,33 @@ return {
 
 		wk.add({
 			mode = { "n" },
-			{ "K", vim.lsp.buf.hover, desc = "Display documentation" },
-			{ "gd", vim.lsp.buf.definition, desc = "Go to definition" },
-			{ "gi", vim.lsp.buf.implementation, desc = "Go to implementation" },
+			{ "K", vim.lsp.buf.hover, desc = "Display Documentation" },
+			{ "gd", vim.lsp.buf.definition, desc = "Go to Definition" },
+			{ "<leader>e", vim.diagnostic.open_float, desc = "Display Line Diagnostics" },
+			{ "<leader>ra", vim.lsp.buf.rename, desc = "Rename" },
+			{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action" },
 
-			{
-				{ "<leader>l", group = "LSP" },
-				{ "<leader>ld", vim.diagnostic.open_float, desc = "Display line diagnostics" },
-				{ "<leader>lr", vim.lsp.buf.rename, desc = "Rename" },
-				{ "<leader>lc", vim.lsp.buf.code_action, desc = "Code action" },
-			},
+			{ "<leader>l", group = "LSP" },
+			{ "<leader>ll", require("lsp_lines").toggle, desc = "Toggle LSP Lines" },
+			{ "<leader>lK", vim.lsp.buf.hover, desc = "Display Documentation" },
+			{ "<leader>lgd", vim.lsp.buf.definition, desc = "Go to Definition" },
+			{ "<leader>le", vim.diagnostic.open_float, desc = "Display Line Diagnostics" },
+			{ "<leader>lra", vim.lsp.buf.rename, desc = "Rename" },
+			{ "<leader>lca", vim.lsp.buf.code_action, desc = "Code Action" },
 
-			{ "<leader>fr", builtin.lsp_references, desc = "Telescope LSP references" },
-			{ "<leader>fd", builtin.diagnostic, desc = "Telescope diagnostics" },
+			{ "<leader>fr", builtin.lsp_references, desc = "Telescope LSP References" },
+			{ "<leader>fd", builtin.diagnostics, desc = "Telescope LSP Diagnostics" },
+			{ "<leader>fq", builtin.quickfix, desc = "Telescope LSP Quickfix" },
 		})
 
 		if client.server_capabilities.inlayHintProvider then
-			local function toggle_inlay_hint()
+			local function inlay_hint()
 				local value = vim.lsp.inlay_hint.is_enabled()
 
 				vim.lsp.inlay_hint.enable(not value)
 			end
 
-			wk.add({ { "<leader>li", toggle_inlay_hint, desc = "Display inlay hints", mode = "n" } })
+			wk.add({ { "<leader>li", inlay_hint, desc = "Display inlay hints", mode = "n" } })
 		end
 	end,
 }

@@ -26,11 +26,11 @@ return {
 						vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
 					end,
 				})
-			end,
-		})
 
-		require("which-key").add({
-			{ "<leader>lf", vim.lsp.buf.format, desc = "Format", mode = "n" },
+				require("which-key").add({
+					{ "<leader>lf", vim.lsp.buf.format, desc = "Format", mode = { "n" } },
+				})
+			end,
 		})
 	end,
 }
