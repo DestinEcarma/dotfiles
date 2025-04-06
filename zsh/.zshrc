@@ -16,6 +16,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Plugins 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
+# Press Ctrl+Space to accept autosuggestions
+bindkey "^ " autosuggest-accept
+
 # Source Oh My ZSH
 source $ZSH/oh-my-zsh.sh
 
