@@ -32,5 +32,11 @@ vim.keymap.set("n", "˚", "<cmd>m .-2<CR>==", merge_tables(opts, { desc = "Move 
 vim.keymap.set("v", "∆", ":m '>+1' <CR>gv=gv", merge_tables(opts, { desc = "Move Line Down" }))
 vim.keymap.set("v", "˚", ":m '<-2<CR>gv=gv", merge_tables(opts, { desc = "Move Line Up" }))
 
+-- Tab Indent
+vim.keymap.set("n", "<C-]>", ">>", merge_tables(opts, { desc = "Indent Line" }))
+vim.keymap.set("n", "<C-[>", "<<", merge_tables(opts, { desc = "Unindent Line" }))
+vim.keymap.set("v", "<C-]>", ">gv", merge_tables(opts, { desc = "Indent Line" }))
+vim.keymap.set("v", "<C-[>", "<gv", merge_tables(opts, { desc = "Unindent Line" }))
+
 -- Select Allow
 vim.keymap.set("n", "<C-A>", "ggVG", merge_tables(opts, { desc = "Select All" }))
