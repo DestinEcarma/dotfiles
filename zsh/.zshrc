@@ -29,3 +29,12 @@ source $ZSH/oh-my-zsh.sh
 if [ -e $HOME/.dotfiles/zsh/.profile ]; then
   source $HOME/.dotfiles/zsh/.profile
 fi
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
