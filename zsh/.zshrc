@@ -17,9 +17,6 @@ export EDITOR=nvim
 # Plugins 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
-# Press Ctrl+Space to accept autosuggestions
-bindkey "^ " autosuggest-accept
-
 # Source Oh My ZSH
 source $ZSH/oh-my-zsh.sh
 
@@ -30,6 +27,9 @@ source $ZSH/oh-my-zsh.sh
 if [ -e $HOME/.dotfiles/zsh/.profile ]; then
   source $HOME/.dotfiles/zsh/.profile
 fi
+
+# Press Ctrl+Space to accept autosuggestions
+bindkey "^ " autosuggest-accept
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
