@@ -1,4 +1,6 @@
 return {
+	cmd = { "lua-language-server" },
+	root_markers = { ".git", ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "selene.toml" },
 	settings = {
 		Lua = {
 			runtime = {
