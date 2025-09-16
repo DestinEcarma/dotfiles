@@ -1,19 +1,20 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	underline = true,
+	severity_sort = true,
+	update_in_insert = false,
 
-return {
-	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
-
-	handlers = {
-		["textDocument/hover"] = {
-			border = "rounded",
-		},
-
-		["textDocument/signatureHelp"] = {
-			border = "rounded",
-		},
+	float = {
+		border = "rounded",
+		source = true,
 	},
+})
 
-	on_attach = function(client, _)
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
 		local builtin = require("telescope.builtin")
 		local wk = require("which-key")
 
@@ -38,7 +39,7 @@ return {
 			{ "<leader>fq", builtin.quickfix, desc = "Telescope LSP Quickfix" },
 		})
 
-		if client.server_capabilities.inlayHintProvider then
+		if client:supports_method("textDocument/inlayHint") then
 			local function inlay_hint()
 				local value = vim.lsp.inlay_hint.is_enabled()
 
@@ -48,4 +49,6 @@ return {
 			wk.add({ { "<leader>li", inlay_hint, desc = "Display inlay hints", mode = "n" } })
 		end
 	end,
-}
+})
+
+vim.lsp.enable({ "lua_ls" })
