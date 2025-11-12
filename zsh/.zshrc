@@ -67,7 +67,9 @@ eval "$(zoxide init --cmd cd zsh)"
 export EDITOR=nvim
 
 # Aliases
-alias ls="ls --color"
+alias ls="exa --icons"
+alias cat="bat"
+alias grep="rg"
 
 # Load custom profile, if it exists
 [[ ! -f $HOME/.dotfiles/zsh/.profile ]] || source $HOME/.dotfiles/zsh/.profile
