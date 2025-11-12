@@ -1,0 +1,8 @@
+theme = "Catppuccin Mocha"
+
+########
+# Font #
+########
+
+font-family = "CaskaydiaCove Nerd Font"
+font-size = 12
