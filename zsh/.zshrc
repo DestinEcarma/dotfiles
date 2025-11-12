@@ -56,8 +56,8 @@ setopt hist_find_no_dups
 zstyle ":completion:*" matcher-list "m:{a-z}={A-Za-z}"
 zstyle ":completion:*" list-colors "${(s.:.)LS_COLORS}"
 zstyle ":completion:*" menu no
-zstyle ":fzf-tab:complete:*" fzf-preview "ls --color $realpath"
-zstyle ":fzf-tab:complete:__zoxide:z:*" fzf-preview "ls --color $realpath"
+zstyle ":fzf-tab:complete:*" fzf
+zstyle ":fzf-tab:complete:__zoxide:z:*" fzf
 
 # Shell integrations
 eval "$(fzf --zsh)"
