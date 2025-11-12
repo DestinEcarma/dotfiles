@@ -34,7 +34,7 @@ autoload -U compinit && compinit
 zinit cdreplay -q
 
 # Keybindings for autosuggestions and history search
-bindkey "^ " autosuggest-accept
+bindkey "\e " autosuggest-accept
 bindkey "^p" history-search-backward
 bindkey "^n" history-search-forward
 
