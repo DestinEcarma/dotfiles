@@ -41,5 +41,9 @@ vim.keymap.set("n", "<C-[>", "<<", merge_tables(opts, { desc = "Unindent Line" }
 vim.keymap.set("v", "<C-]>", ">gv", merge_tables(opts, { desc = "Indent Line" }))
 vim.keymap.set("v", "<C-[>", "<gv", merge_tables(opts, { desc = "Unindent Line" }))
 
--- Select Allow
+-- Select All
 vim.keymap.set("n", "<C-A>", "ggVG", merge_tables(opts, { desc = "Select All" }))
+
+-- Move Up/Down and Center
+vim.keymap.set("n", "{", "{zz", merge_tables(opts, { desc = "Move Up and Center" }))
+vim.keymap.set("n", "}", "}zz", merge_tables(opts, { desc = "Move Down and Center" }))
