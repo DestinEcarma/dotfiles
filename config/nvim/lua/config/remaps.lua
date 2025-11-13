@@ -22,8 +22,8 @@ vim.keymap.set("n", "«", "<cmd>split<CR>", merge_tables(opts, { desc = "Split W
 
 -- Tab Window
 vim.keymap.set("n", "<C-T>n", "<cmd>tabnew<CR>", merge_tables(opts, { desc = "New Tab" }))
-vim.keymap.set("n", "<C-T>l", "<cmd>tabnext<CR>", merge_tables(opts, { desc = "Next Tab" }))
-vim.keymap.set("n", "<C-T>h", "<cmd>tabprevious<CR>", merge_tables(opts, { desc = "Previous Tab" }))
+vim.keymap.set("n", "<leader>n", "<cmd>tabnext<CR>", merge_tables(opts, { desc = "Next Tab" }))
+vim.keymap.set("n", "<leader>p", "<cmd>tabprevious<CR>", merge_tables(opts, { desc = "Previous Tab" }))
 
 -- Move Line
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<CR>==", merge_tables(opts, { desc = "Move Line Down" }))
