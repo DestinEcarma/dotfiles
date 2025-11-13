@@ -39,14 +39,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			{ "<leader>fq", builtin.quickfix, desc = "Telescope LSP Quickfix" },
 		})
 
-		if client:supports_method("textDocument/inlayHint") then
-			local function inlay_hint()
-				local value = vim.lsp.inlay_hint.is_enabled()
+		if client then
+			if client:supports_method("textDocument/inlayHint") then
+				local function inlay_hint()
+					local value = vim.lsp.inlay_hint.is_enabled()
 
-				vim.lsp.inlay_hint.enable(not value)
+					vim.lsp.inlay_hint.enable(not value)
+				end
+
+				wk.add({ { "<leader>li", inlay_hint, desc = "Display inlay hints", mode = "n" } })
 			end
 
-			wk.add({ { "<leader>li", inlay_hint, desc = "Display inlay hints", mode = "n" } })
+			if client:supports_method("textDocument/documentSymbol") then
+				require("nvim-navic").attach(client, ev.buf)
+				vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+			end
 		end
 	end,
 })
