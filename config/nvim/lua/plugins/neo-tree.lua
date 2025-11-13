@@ -9,7 +9,12 @@ return {
 
 	init = function()
 		require("which-key").add({
-			{ "<C-B>", "<cmd>Neotree filesystem float<CR>", desc = "Toggle file tree", mode = { "n" } },
+			{
+				"<C-b>",
+				"<cmd>Neotree filesystem reveal right focus<CR>",
+				desc = "Open Neo Tree",
+				mode = { "n" },
+			},
 		})
 	end,
 
@@ -24,9 +29,8 @@ return {
 				},
 			},
 			window = {
-				position = "float",
 				mappings = {
-					["<c-b>"] = "close_window",
+					["<C-b>"] = "close_window",
 				},
 			},
 		})
