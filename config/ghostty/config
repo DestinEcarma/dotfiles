@@ -9,3 +9,4 @@ font-size = 12
 
 keybind = performable:ctrl+tab=unbind
 keybind = performable:ctrl+shift+tab=unbind
+keybind = performable:ctrl+shift+j=unbind
