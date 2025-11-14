@@ -5,12 +5,7 @@ return {
 
 	config = function()
 		require("catppuccin").setup({
-			integrations = {
-				navic = {
-					enabled = true,
-					custom_bg = "NONE",
-				},
-			},
+			auto_integrations = true,
 		})
 
 		vim.cmd([[colorscheme catppuccin]])
