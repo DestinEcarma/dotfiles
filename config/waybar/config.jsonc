@@ -65,7 +65,12 @@
     },
     "battery": {
         "format": "<span size='large'>{icon}</span>  {capacity}%",
-        "format-icons": ["󰂎", "󰁼", "󰁾", "󰂀", "󰁹"]
+        "tooltip-format": "{timeTo} Health {health}",
+        "format-icons": {
+            "default": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+            "charging": ["󰢟", "󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂅"],
+            "plugged": ["󰂄"]
+        }
     },
     "custom/notification": {
         "tooltip": false,
