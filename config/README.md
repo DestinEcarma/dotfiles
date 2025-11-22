@@ -13,6 +13,7 @@ This section are a prerequisite tools for each configuration file.
     - [`hyprpaper`](https://github.com/hyprwm/hyprpaper) - This will serve as the wallpaper utility.
     - [`hyprshot`](https://github.com/Gustash/Hyprshot) - This will serve as the screenshot utility.
 - [`kitty`](https://github.com/kovidgoyal/kitty) - `hyprland` uses `kitty` as the default terminal emulator. You can change this to your preferred terminal emulator. This is just my personal config.
+- [`ghostty`](https://github.com/ghostty-org/ghostty)
 - [`nvim`](https://github.com/neovim/neovim)
     - [`fd`](https://github.com/sharkdp/fd)
     - [`ripgrep`](https://github.com/BurntSushi/ripgrep)
@@ -20,17 +21,17 @@ This section are a prerequisite tools for each configuration file.
 - [`rofi`](https://github.com/davatorium/rofi)
 - [`wal`](https://github.com/dylanaraps/pywal)
 - [`waybar`](https://github.com/dylanaraps/pywal)
-    - [`blueman`](https://github.com/blueman-project/blueman)
-    - [`nm-connection-editor`](https://www.computernetworkingnotes.com/linux-tutorials/the-nm-connection-editor-command-on-linux.html)
-    - [`swaync`](https://github.com/ErikReider/SwayNotificationCenter)
+    - [`impala`](https://github.com/pythops/impala)
+    - [`bluetui`](https://github.com/pythops/impala)
+    - [`wiremix`](https://github.com/tsowell/wiremix)
 - [`wlogout`](https://github.com/ArtsyMacaw/wlogout) - This is is used by `waybar`.
+- [`tmux`](https://github.com/tmux/tmux)
 
 ## Recommended
 
 This section are the recommended tools to have, currently I am using `hyprland` as my window manager. Installing `hyprland` on a minimal installation of `arch` can be a bit tricky and time consuming. So this will be the list of tools that I used to work with `hyprland`.
 
 - `pipewire` - This is for audio support.
-- `pavucontrol` - This is for controlling the audio.
 - `bluez` - This is for bluetooth support.
 - `networkmanager` - This is for network support.
 - `xdg-desktop-portal-hyprland`
