@@ -48,19 +48,19 @@
         "format-disconnected": "<span size='large'></span>",
         "tooltip-format": "  {bandwidthUpBytes}    {bandwidthDownBytes}",
         "interval": 30,
-        "on-click": "nm-connection-editor"
+        "on-click": "kitty --class float --title impala -e impala"
     },
     "bluetooth": {
         "format-on": "<span size='large'>󰂯</span>",
         "format-off": "<span size='large'>󰂲</span>",
         "format-no-controller": "<span size='large'>󰂲</span>",
         "format-connected": "<span size='large'></span> ",
-        "on-click": "blueman-manager"
+        "on-click": "kitty --class float --title bluetui -e bluetui"
     },
     "wireplumber": {
         "format": "<span size='large'>{icon}</span>  {volume}%",
         "format-muted": "",
-        "on-click": "pavucontrol",
+        "on-click": "kitty --class float --title wiremix -e wiremix",
         "format-icons": ["", "", ""]
     },
     "battery": {
