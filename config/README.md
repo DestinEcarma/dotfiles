@@ -12,6 +12,7 @@ This section are a prerequisite tools for each configuration file.
     - [`gnome-polkit`](https://gitlab.gnome.org/Archive/policykit-gnome) - You can use any polkit agent that you prefer.
     - [`hyprpaper`](https://github.com/hyprwm/hyprpaper) - This will serve as the wallpaper utility.
     - [`hyprshot`](https://github.com/Gustash/Hyprshot) - This will serve as the screenshot utility.
+    - [`swww`](https://github.com/LGFae/swww)
 - [`kitty`](https://github.com/kovidgoyal/kitty) - `hyprland` uses `kitty` as the default terminal emulator. You can change this to your preferred terminal emulator. This is just my personal config.
 - [`ghostty`](https://github.com/ghostty-org/ghostty)
 - [`nvim`](https://github.com/neovim/neovim)
@@ -19,6 +20,7 @@ This section are a prerequisite tools for each configuration file.
     - [`ripgrep`](https://github.com/BurntSushi/ripgrep)
     - Please run the `checkhealth` command on `neovim` to check for more information for missing dependencies.
 - [`rofi`](https://github.com/davatorium/rofi)
+    - [`rofi-calc`](https://github.com/svenstaro/rofi-calc)
 - [`wal`](https://github.com/dylanaraps/pywal)
 - [`waybar`](https://github.com/dylanaraps/pywal)
     - [`impala`](https://github.com/pythops/impala)
