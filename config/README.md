@@ -28,6 +28,8 @@ This section are a prerequisite tools for each configuration file.
     - [`wiremix`](https://github.com/tsowell/wiremix)
 - [`wlogout`](https://github.com/ArtsyMacaw/wlogout) - This is is used by `waybar`.
 - [`tmux`](https://github.com/tmux/tmux)
+- [`swaync`](https://github.com/ErikReider/SwayNotificationCenter)
+- [`swayosd`](https://github.com/ErikReider/SwayOSD)
 
 ## Recommended
 
