@@ -2,6 +2,8 @@
 
 This is my dotfiles configuration, feel free to use them however you want.
 
+![Desktop Screenshot](./assets/desktop-1.png)
+
 ## Features
 
 - Neovim setup
