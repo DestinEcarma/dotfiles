@@ -4,18 +4,6 @@ This is my dotfiles configuration, feel free to use them however you want.
 
 ![Desktop Screenshot](./assets/desktop-1.png)
 
-## Features
-
-- Neovim setup
-- ZSH configuration with Oh My Zsh
-
-## Prerequisites
-
-Ensure you have the following tools installed before proceeding:
-
-- [Git](https://github.com/git/git?tab=readme-ov-file#installing-git)
-- [Neovim](https://github.com/neovim/neovim/blob/master/INSTALL.md)
-
 ## Recommended Utilities
 
 - [Bat](https://github.com/sharkdp/bat?tab=readme-ov-file#installation)
@@ -29,7 +17,7 @@ Ensure you have the following tools installed before proceeding:
 Clone this repository to your home directory:
 
 ```sh
-git clone https://github.com/DestinEcarma/dotfiles.git ~/.dotfiles
+git clone --depth 1 https://github.com/DestinEcarma/dotfiles.git ~/.dotfiles
 ```
 
 Run the bootstrap script to create symlinks for all configurations:
