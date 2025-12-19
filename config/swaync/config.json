@@ -44,14 +44,14 @@
                     "type": "toggle",
                     "active": false,
                     "command": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-                    "update-command": "wpctl inspect @DEFAULT_AUDIO_SINK@ | grep -q 'muted: true' && echo false || echo true"
+                    "update-command": "wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q 'MUTED' && echo true || echo false"
                 },
                 {
                     "label": "󰍭",
                     "type": "toggle",
                     "active": false,
                     "command": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
-                    "update-command": "wpctl inspect @DEFAULT_AUDIO_SOURCE@ | grep -q 'muted: true' && echo false || echo true"
+                    "update-command": "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q 'MUTED' && echo true || echo false"
                 },
                 {
                     "label": "",
