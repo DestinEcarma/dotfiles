@@ -1,10 +1,10 @@
-@import "/home/destin/.cache/wal/colors-waybar.css";
+@import "colors.css";
 
-@define-color bg alpha(black, 0.5);
-@define-color border-color @color2;
-@define-color active-button alpha(@color6, 0.5);
-@define-color hover-button alpha(@color4, 0.5);
-@define-color inactive-button alpha(@color2, 0.5);
+@define-color inactive        @inverse_primary;
+@define-color hover           @primary_fixed_dim;
+@define-color on_hover        @on_primary;
+@define-color active          @primary_fixed;
+@define-color on_active       @on_primary_fixed;
 
 * {
     font-family: "JetBrains Mono Nerd Font", monospace;
@@ -13,7 +13,8 @@
 }
 
 window#waybar {
-    background-color: transparent;
+    background: transparent;
+    color: @on_background;
 }
 
 #cpu,
@@ -31,8 +32,8 @@ window#waybar {
 #hardwares2,
 #custom-logout,
 #custom-notification {
-    background-color: @bg;
-    border: 2px solid @border-color;
+    background: alpha(@background, 0.5);
+    border: 2px solid @primary;
     border-radius: 20px;
     padding: 0 20px;
 }
@@ -53,7 +54,7 @@ window#waybar {
 }
 
 #workspaces button {
-    background-color: @inactive-button;
+    background: @inactive;
     color: transparent;
     padding: 0 4px;
     border-radius: 20px;
@@ -65,10 +66,12 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background-color: @active-button;
+    background: @active;
+    color: @on_active;
     padding: 0 20px;
 }
 
 #workspaces button:hover {
-    background-color: @hover-button;
+    background: @hover;
+    color: @on_hover;
 }

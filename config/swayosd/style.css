@@ -1,20 +1,15 @@
-@import "../../.cache/wal/colors-waybar.css";
-
-@define-color bg alpha(black, 0.5);
-@define-color border-color @color2;
-@define-color accent-bg @color6;
-@define-color secondary-bg alpha(@color2, 0.5);
+@import "colors.css";
 
 window#osd {
-    color: @foreground;
-    background: @bg;
-    border: 2px solid @border-color;
+    color: @on_background;
+    background: alpha(@background, 0.5);
+    border: 2px solid @primary;
 }
 
 progressbar {
-    background: @secondary-bg;
+    background: @inverse_primary;
 }
 
 progress {
-    background: @accent-bg;
+    background: @primary;
 }

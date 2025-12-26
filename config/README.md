@@ -12,6 +12,7 @@ This section are a prerequisite tools for each configuration file.
     - [`gnome-polkit`](https://gitlab.gnome.org/Archive/policykit-gnome) - You can use any polkit agent that you prefer.
     - [`hyprshot`](https://github.com/Gustash/Hyprshot) - This will serve as the screenshot utility.
     - [`swww`](https://github.com/LGFae/swww)
+    - [`waypaper`](https://github.com/anufrievroman/waypaper)
 - [`kitty`](https://github.com/kovidgoyal/kitty) - `hyprland` uses `kitty` as the default terminal emulator. You can change this to your preferred terminal emulator. This is just my personal config.
 - [`ghostty`](https://github.com/ghostty-org/ghostty)
 - [`nvim`](https://github.com/neovim/neovim)
@@ -20,8 +21,7 @@ This section are a prerequisite tools for each configuration file.
     - Please run the `checkhealth` command on `neovim` to check for more information for missing dependencies.
 - [`rofi`](https://github.com/davatorium/rofi)
     - [`rofi-calc`](https://github.com/svenstaro/rofi-calc)
-- [`wal`](https://github.com/dylanaraps/pywal)
-- [`waybar`](https://github.com/dylanaraps/pywal)
+- [`waybar`](https://github.com/Alexays/Waybar)
     - [`impala`](https://github.com/pythops/impala)
     - [`bluetui`](https://github.com/pythops/impala)
     - [`wiremix`](https://github.com/tsowell/wiremix)
@@ -29,6 +29,7 @@ This section are a prerequisite tools for each configuration file.
 - [`tmux`](https://github.com/tmux/tmux)
 - [`swaync`](https://github.com/ErikReider/SwayNotificationCenter)
 - [`swayosd`](https://github.com/ErikReider/SwayOSD)
+- [`matugen`](https://github.com/InioX/matugen)
 
 ## Recommended
 

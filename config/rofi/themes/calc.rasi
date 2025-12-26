@@ -7,33 +7,41 @@ configuration {
 	}
 }
 
-@theme "/home/destin/.cache/wal/colors-rofi-dark.rasi"
+@theme "../colors.rasi"
 
 * {
-	color: @foreground;
-	background: transparent;
-	border-color: @active-background;
+	text-color: @on-background;
+	background-color: transparent;
+	border-color: @primary;
 	font: "JetBrainsMono Nerd Font Propo 14";
 }
 
 window {
-	background-color: rgba(0, 0, 0, 0.75);
+	background-color: rgba(0, 0, 0, 0.5);
 	border: 2px;
 	border-radius: 10px;
+    padding: 2.5ch;
 }
 
 inputbar {
 	padding: 10px;
 	border: 0 0 2px 0;
+    children: [prompt, textbox-prompt-colon, entry];
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: ":";
+    margin: 0px 0.3em 0em 0em;
+}
+
+entry {
+	placeholder: "Start typing...";
 }
 
 message {
 	padding: 10px;
 	border: 0 0 2px 0;
-}
-
-entry {
-	placeholder: "Start typing...";
 }
 
 listview {
@@ -43,11 +51,22 @@ listview {
 
 element {
 	spacing: 10px;
-	padding: 10px 0 10px 0;
+	padding: 10px;
 	border-radius: 10px;
 	cursor: pointer;
 }
 
 element-text {
 	cursor: inherit;
+	text-color: inherit;
+}
+
+element.selected.normal {
+    background-color: @primary;
+    text-color: @on-primary;
+}
+
+element.selected.active {
+    background-color: @primary;
+    text-color: @on-primary;
 }
