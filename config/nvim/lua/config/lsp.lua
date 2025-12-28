@@ -27,7 +27,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action" },
 
 			{ "<leader>l", group = "LSP" },
-			{ "<leader>ll", require("lsp_lines").toggle, desc = "Toggle LSP Lines" },
 			{ "<leader>lK", vim.lsp.buf.hover, desc = "Display Documentation" },
 			{ "<leader>lgd", vim.lsp.buf.definition, desc = "Go to Definition" },
 			{ "<leader>le", vim.diagnostic.open_float, desc = "Display Line Diagnostics" },

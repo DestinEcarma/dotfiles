@@ -1,12 +1,13 @@
 return {
 	"akinsho/bufferline.nvim",
 	version = "*",
-	dependencies = "nvim-tree/nvim-web-devicons",
+	dependencies = {
+		"catppuccin/nvim",
+		"nvim-tree/nvim-web-devicons",
+	},
 
 	config = function()
-		local bufferline = require("bufferline")
-
-		bufferline.setup({
+		require("bufferline").setup({
 			highlights = require("catppuccin.special.bufferline").get_theme(),
 			options = {
 				mode = "tabs",

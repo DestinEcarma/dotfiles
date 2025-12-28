@@ -5,8 +5,8 @@ return {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
+		"folke/which-key.nvim",
 	},
-
 	init = function()
 		require("which-key").add({
 			{
@@ -17,30 +17,27 @@ return {
 			},
 		})
 	end,
-
-	config = function()
-		require("neo-tree").setup({
-			close_if_last_window = true,
-			popup_border_style = "rounded",
-			filesystem = {
-				filtered_items = {
-					hide_by_name = { "node_modules" },
-					always_show = { ".gitignore" },
-				},
+	opts = {
+		close_if_last_window = true,
+		popup_border_style = "rounded",
+		filesystem = {
+			filtered_items = {
+				hide_by_name = { "node_modules" },
+				always_show = { ".gitignore" },
 			},
-			window = {
-				mappings = {
-					["<C-b>"] = "close_window",
-				},
+		},
+		window = {
+			mappings = {
+				["<C-b>"] = "close_window",
 			},
-			event_handlers = {
-				{
-					event = "file_open_requested",
-					handler = function()
-						require("neo-tree.command").execute({ action = "close" })
-					end,
-				},
+		},
+		event_handlers = {
+			{
+				event = "file_open_requested",
+				handler = function()
+					require("neo-tree.command").execute({ action = "close" })
+				end,
 			},
-		})
-	end,
+		},
+	},
 }

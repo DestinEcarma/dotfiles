@@ -1,8 +1,10 @@
 return {
 	"mrcjkb/rustaceanvim",
-	version = "^5.20.1",
 	lazy = false,
-
+	dependencies = {
+		"folke/which-key.nvim",
+		"nvim-telescope/telescope.nvim",
+	},
 	config = function()
 		vim.g.rustaceanvim = {
 			tools = {
@@ -24,7 +26,6 @@ return {
 						{ "<leader>ra", vim.lsp.buf.rename, desc = "Rename" },
 
 						{ "<leader>l", group = "LSP" },
-						{ "<leader>ll", require("lsp_lines").toggle, desc = "Toggle LSP Lines" },
 						{ "<leader>lK", hover_actions, desc = "Display Documentation" },
 						{ "<leader>lgd", vim.lsp.buf.definition, desc = "Go to Definition" },
 						{ "<leader>le", diagnostics, desc = "Display Line Diagnostics" },

@@ -1,43 +1,34 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.6",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
+		"andrew-george/telescope-themes",
 		"nvim-telescope/telescope-ui-select.nvim",
 	},
-
-	init = function()
-		local builtin = require("telescope.builtin")
-
-		require("which-key").add({
-			mode = { "n" },
-			{ "<C-P>", builtin.find_files, desc = "Find files" },
-			{ "<C-F>", builtin.live_grep, desc = "Live grep" },
-
-			{ "<leader>f", group = "Telescope" },
-			{ "<leader>fp", builtin.find_files, desc = "Find files" },
-			{ "<leader>ff", builtin.live_grep, desc = "Live grep" },
-			{ "<leader>fb", builtin.buffers, desc = "Buffers" },
-			{ "<leader>fo", builtin.oldfiles, desc = "Oldfiles" },
-			{ "<leader>fh", builtin.help_tags, desc = "Help tags" },
-		})
-	end,
-
-	config = function()
+	keys = {
+		{ "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+		{ "<C-f>", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+		{ "<leader>fp", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+		{ "<leader>ff", "<cmd>Telescope live_grep<cr>", desc = "Live grep" },
+		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+		{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "Oldfiles" },
+		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help tags" },
+	},
+	opts = {
+		defaults = {
+			file_ignore_patterns = { "node_modules" },
+		},
+	},
+	config = function(_, opts)
 		local telescope = require("telescope")
 
-		telescope.setup({
-			defaults = {
-				file_ignore_patterns = { "node_modules" },
-			},
-			extensions = {
-				["ui-select"] = {
-					require("telescope.themes").get_dropdown({}),
-				},
-			},
-		})
+		opts.extensions = {
+			["ui-select"] = require("telescope.themes").get_dropdown({}),
+		}
 
+		telescope.setup(opts)
 		telescope.load_extension("ui-select")
+		telescope.load_extension("themes")
 	end,
 }
