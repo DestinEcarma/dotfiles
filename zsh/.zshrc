@@ -72,6 +72,16 @@ alias ls="exa --icons"
 alias cat="bat"
 alias grep="rg"
 
+## Pacman and Yay fzf install aliases
+alias pacman-is="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
+alias yay-is="yay -Slq | fzf --multi --preview 'yay -Si {1}' | xargs -ro yay -S"
+
+## Pacman utility aliases
+alias pacman-rs="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns"
+alias pacman-clean="sudo pacman -Rns \$(pacman -Qtdq)"
+
 # Load custom profile, if it exists
 [[ ! -f "$SCRIPT_DIR/.profile" ]] || source "$SCRIPT_DIR/.profile"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
