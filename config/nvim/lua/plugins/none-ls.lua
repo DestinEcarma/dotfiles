@@ -15,10 +15,6 @@ return {
 				formatting.prettierd,
 				formatting.clang_format,
 				formatting.asmfmt,
-				formatting.black.with({
-					extra_args = { "--line-length", "79" },
-				}),
-				formatting.isort,
 			},
 
 			on_attach = function(client, bufnr)
