@@ -53,6 +53,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
 				require("nvim-navic").attach(client, ev.buf)
 				vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
 			end
+
+			if client:supports_method("textDocument/formatting") then
+				wk.add({
+					{ "<leader>lf", vim.lsp.buf.format, desc = "Format", mode = { "n" } },
+				})
+
+				vim.api.nvim_create_user_command("Format", function()
+					vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
+				end, { desc = "Format current buffer with LSP" })
+
+				if not client:supports_method("textDocument/willSaveWaitUntil") then
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = ev.buf,
+						callback = function()
+							vim.lsp.buf.format({ bufnr = bufnr, id = client.id, timeout_ms = 1000 })
+						end,
+					})
+				end
+			end
 		end
 	end,
 })
