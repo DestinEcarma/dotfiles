@@ -1,0 +1,172 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    // UI
+    "title_bar": {
+        "show_onboarding_banner": false,
+        "show_project_items": false,
+        "show_branch_name": false,
+        "show_user_menu": false,
+    },
+    "tab_bar": {
+        "show": false,
+    },
+    "toolbar": {
+        "quick_actions": false,
+    },
+    "status_bar": {
+        "experimental.show": false,
+    },
+
+    // Network
+    "agent_servers": {
+        "github-copilot": {
+            "type": "registry",
+        },
+    },
+    "project_panel": {
+        "dock": "right",
+        "default_width": 400,
+        "hide_root": true,
+        "auto_fold_dirs": false,
+        "starts_open": false,
+    },
+    "telemetry": {
+        "metrics": false,
+        "diagnostics": false,
+    },
+
+    // AI
+    "agent": {
+        "inline_assistant_model": {
+            "provider": "google",
+            "model": "gemini-3-flash-preview",
+        },
+        "default_profile": "ask",
+        "enabled": true,
+        "default_model": {
+            "enable_thinking": false,
+            "provider": "google",
+            "model": "gemini-2.5-flash-lite",
+        },
+    },
+    "edit_predictions": {
+        "sweep": {
+            "privacy_mode": false,
+        },
+        "provider": "zed",
+        "mode": "subtle",
+    },
+
+    // Indnet
+    "tab_size": 4,
+    "hard_tabs": false,
+    "show_whitespaces": "all",
+    "indent_guides": {
+        "line_width": 2,
+        "active_line_width": 2,
+        "coloring": "indent_aware",
+    },
+
+    // Vim
+    "vim_mode": true,
+    "relative_line_numbers": "enabled",
+
+    // Font
+    "buffer_font_family": "CaskaydiaCove Nerd Font",
+    "ui_font_family": "CaskaydiaCove Nerd Font",
+    "ui_font_size": 20,
+    "buffer_font_size": 16,
+    "buffer_font_features": {
+        "liga": true,
+    },
+    "ui_font_features": {
+        "liga": true,
+    },
+    "gutter": {
+        "min_line_number_digits": 0,
+    },
+
+    // Theme
+    "theme": {
+        "mode": "system",
+        "dark": "Catppuccin Mocha (Blur) [Heavy]",
+        "light": "Catppuccin Mocha (Blur) [Light]",
+    },
+    "icon_theme": "Catppuccin Mocha",
+
+    "format_on_save": "on",
+    "formatter": "auto",
+
+    "lsp": {
+        "vscode-css-language-server": {
+            "settings": {
+                "css": {
+                    "lint": {
+                        "unknownAtRules": "ignore",
+                    },
+                },
+            },
+        },
+    },
+
+    "languages": {
+        "JavaScript": {
+            "hard_tabs": true,
+            "formatter": {
+                "external": {
+                    "command": "C:\\Users\\maker\\Appdata\\Local\\pnpm\\prettierd.CMD",
+                    "arguments": ["--stdin-filepath", "{buffer_path}"],
+                },
+            },
+        },
+        "TypeScript": {
+            "hard_tabs": true,
+            "formatter": {
+                "external": {
+                    "command": "C:\\Users\\maker\\Appdata\\Local\\pnpm\\prettierd.CMD",
+                    "arguments": ["--stdin-filepath", "{buffer_path}"],
+                },
+            },
+        },
+        "TSX": {
+            "hard_tabs": true,
+            "formatter": {
+                "external": {
+                    "command": "C:\\Users\\maker\\Appdata\\Local\\pnpm\\prettierd.CMD",
+                    "arguments": ["--stdin-filepath", "{buffer_path}"],
+                },
+            },
+        },
+        "JSON": {
+            "hard_tabs": true,
+            "formatter": {
+                "external": {
+                    "command": "C:\\Users\\maker\\Appdata\\Local\\pnpm\\prettierd.CMD",
+                    "arguments": ["--stdin-filepath", "{buffer_path}"],
+                },
+            },
+        },
+        "Python": {
+            "formatter": [
+                {
+                    "language_server": {
+                        "name": "ruff",
+                    },
+                },
+            ],
+        },
+        "TOML": {
+            "format_on_save": "off",
+        },
+        "YAML": {
+            "tab_size": 2,
+        },
+    },
+}
