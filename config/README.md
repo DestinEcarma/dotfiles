@@ -22,7 +22,7 @@ This section are a prerequisite tools for each configuration file.
 - [`rofi`](https://github.com/davatorium/rofi)
     - [`rofi-calc`](https://github.com/svenstaro/rofi-calc)
 - [`waybar`](https://github.com/Alexays/Waybar)
-    - [`impala`](https://github.com/pythops/impala)
+    - [`wlctl`](https://github.com/aashish-thapa/wlctl)
     - [`bluetui`](https://github.com/pythops/impala)
     - [`wiremix`](https://github.com/tsowell/wiremix)
 - [`wlogout`](https://github.com/ArtsyMacaw/wlogout) - This is is used by `waybar`.

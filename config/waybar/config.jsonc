@@ -48,7 +48,7 @@
         "format-disconnected": "<span size='large'></span>",
         "tooltip-format": "  {bandwidthUpBytes}    {bandwidthDownBytes}",
         "interval": 30,
-        "on-click": "kitty --class float --title impala -e impala"
+        "on-click": "kitty --class float --title wlctl -e wlctl"
     },
     "bluetooth": {
         "format-on": "<span size='large'>󰂯</span>",
