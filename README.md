@@ -12,6 +12,14 @@ This is my dotfiles configuration, feel free to use them however you want.
 - [Zoxide](https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
 - [Ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
 
+## SDDM Theme
+
+I use the following SDDM theme for my login screen, you can find it here:
+
+- [Sddm Astronaut Theme](https://github.com/Keyitdev/sddm-astronaut-theme)
+
+![Login Screen Screenshot](./assets/sddm.png)
+
 ## Installation
 
 Clone this repository to your home directory:
