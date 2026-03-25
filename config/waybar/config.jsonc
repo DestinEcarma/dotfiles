@@ -5,7 +5,7 @@
     "spacing": 20,
     "margin": "5px 5px 0 5px",
 
-    "modules-left": ["clock"],
+    "modules-left": ["clock", "tray"],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": [
         "group/hardwares1",
@@ -23,6 +23,10 @@
         "format-alt": "󰃭  {:%b %d, %Y}",
         "tooltip-format": "󰃭  {:%B %d, %Y    %I:%M %p}"
     },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
 
     ////////////////////
     // Center Modules //
@@ -36,6 +40,7 @@
     "cpu": {
         "format": "  {usage}%"
     },
+
     "memory": {
         "format": "  {percentage}%"
     },
