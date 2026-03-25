@@ -20,7 +20,7 @@ post_hook = "swaync-client -rs"
 [templates.swayosd]
 input_path = "~/.config/matugen/templates/colors.css"
 output_path = "~/.config/swayosd/colors.css"
-post_hook = "killall -9 swayosd-server && swayosd-server"
+post_hook = "killall -9 swayosd-server && exec swayosd-server"
 
 [templates.rofi]
 input_path = "~/.config/matugen/templates/rofi.rasi"
