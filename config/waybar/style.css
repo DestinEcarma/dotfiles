@@ -7,7 +7,7 @@
 @define-color on_active       @on_primary_fixed;
 
 * {
-    font-family: "JetBrains Mono Nerd Font", monospace;
+    font-family: "JetBrains Mono Nerd Font Propo", monospace;
     font-weight: 600;
     font-size: 11px;
 }
@@ -47,7 +47,7 @@ window#waybar {
 #custom-logout,
 #custom-notification {
     padding-left: 14px;
-    padding-right: 16px;
+    padding-right: 14px;
 }
 
 #workspaces {

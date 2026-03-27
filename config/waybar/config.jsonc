@@ -59,7 +59,7 @@
         "format-on": "<span size='large'>󰂯</span>",
         "format-off": "<span size='large'>󰂲</span>",
         "format-no-controller": "<span size='large'>󰂲</span>",
-        "format-connected": "<span size='large'></span> ",
+        "format-connected": "<span size='large'></span>",
         "on-click": "kitty --class float --title bluetui -e bluetui"
     },
     "wireplumber": {
