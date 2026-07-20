@@ -8,60 +8,68 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
     // UI
+    "cli_default_open_behavior": "new_window",
+    "outline_panel": {
+        "dock": "left"
+    },
+    "collaboration_panel": {
+        "dock": "left"
+    },
+    "git_panel": {
+        "dock": "left"
+    },
     "title_bar": {
         "show_onboarding_banner": false,
         "show_project_items": false,
         "show_branch_name": false,
-        "show_user_menu": false,
+        "show_user_menu": false
     },
     "tab_bar": {
-        "show": false,
+        "show": false
     },
     "toolbar": {
-        "quick_actions": false,
+        "quick_actions": false
     },
     "status_bar": {
-        "experimental.show": false,
+        "experimental.show": true
     },
 
     // Network
     "agent_servers": {
         "github-copilot": {
-            "type": "registry",
-        },
+            "type": "registry"
+        }
     },
     "project_panel": {
         "dock": "right",
         "default_width": 400,
         "hide_root": true,
         "auto_fold_dirs": false,
-        "starts_open": false,
+        "starts_open": false
     },
     "telemetry": {
         "metrics": false,
-        "diagnostics": false,
+        "diagnostics": false
     },
 
     // AI
     "agent": {
+        "dock": "right",
         "inline_assistant_model": {
             "provider": "google",
-            "model": "gemini-3-flash-preview",
+            "model": "gemini-3-flash-preview"
         },
         "default_profile": "ask",
         "enabled": true,
         "default_model": {
             "enable_thinking": false,
             "provider": "google",
-            "model": "gemini-2.5-flash-lite",
-        },
+            "model": "gemini-2.5-flash-lite"
+        }
     },
     "edit_predictions": {
-        "sweep": {
-            "privacy_mode": false,
-        },
         "provider": "zed",
-        "mode": "subtle",
+        "mode": "subtle"
     },
 
     // Indnet
@@ -71,7 +79,7 @@
     "indent_guides": {
         "line_width": 2,
         "active_line_width": 2,
-        "coloring": "indent_aware",
+        "coloring": "indent_aware"
     },
 
     // Vim
@@ -84,20 +92,20 @@
     "ui_font_size": 20,
     "buffer_font_size": 16,
     "buffer_font_features": {
-        "liga": true,
+        "liga": true
     },
     "ui_font_features": {
-        "liga": true,
+        "liga": true
     },
     "gutter": {
-        "min_line_number_digits": 0,
+        "min_line_number_digits": 0
     },
 
     // Theme
     "theme": {
         "mode": "system",
-        "dark": "Catppuccin Mocha (Blur) [Heavy]",
-        "light": "Catppuccin Mocha (Blur) [Light]",
+        "dark": "Catppuccin Mocha",
+        "light": "Catppuccin Mocha (Blur) [Light]"
     },
     "icon_theme": "Catppuccin Mocha",
 
@@ -105,15 +113,30 @@
     "formatter": "auto",
 
     "lsp": {
+        "vtsls": {
+            "settings": {
+                "typescript": {
+                    "updateImportsOnFileMove": {
+                        "enabled": "always"
+                    }
+                },
+                "javascript": {
+                    "updateImportsOnFileMove": {
+                        "enabled": "always"
+                    }
+                }
+            },
+            "enable_lsp_tasks": true
+        },
         "vscode-css-language-server": {
             "settings": {
                 "css": {
                     "lint": {
-                        "unknownAtRules": "ignore",
-                    },
-                },
-            },
-        },
+                        "unknownAtRules": "ignore"
+                    }
+                }
+            }
+        }
     },
 
     "languages": {
@@ -121,52 +144,118 @@
             "hard_tabs": true,
             "formatter": {
                 "external": {
-                    "command": "C:\\Users\\maker\\Appdata\\Local\\pnpm\\prettierd.CMD",
-                    "arguments": ["--stdin-filepath", "{buffer_path}"],
-                },
-            },
+                    "command": "prettierd",
+                    "arguments": ["--stdin-filepath", "{buffer_path}"]
+                }
+            }
         },
         "TypeScript": {
             "hard_tabs": true,
             "formatter": {
                 "external": {
-                    "command": "C:\\Users\\maker\\Appdata\\Local\\pnpm\\prettierd.CMD",
-                    "arguments": ["--stdin-filepath", "{buffer_path}"],
-                },
-            },
+                    "command": "prettierd",
+                    "arguments": ["--stdin-filepath", "{buffer_path}"]
+                }
+            }
         },
         "TSX": {
             "hard_tabs": true,
             "formatter": {
                 "external": {
-                    "command": "C:\\Users\\maker\\Appdata\\Local\\pnpm\\prettierd.CMD",
-                    "arguments": ["--stdin-filepath", "{buffer_path}"],
-                },
-            },
+                    "command": "prettierd",
+                    "arguments": ["--stdin-filepath", "{buffer_path}"]
+                }
+            }
         },
         "JSON": {
             "hard_tabs": true,
             "formatter": {
                 "external": {
-                    "command": "C:\\Users\\maker\\Appdata\\Local\\pnpm\\prettierd.CMD",
-                    "arguments": ["--stdin-filepath", "{buffer_path}"],
-                },
-            },
+                    "command": "prettierd",
+                    "arguments": ["--stdin-filepath", "{buffer_path}"]
+                }
+            }
         },
         "Python": {
             "formatter": [
                 {
                     "language_server": {
-                        "name": "ruff",
-                    },
-                },
-            ],
+                        "name": "ruff"
+                    }
+                }
+            ]
         },
         "TOML": {
-            "format_on_save": "off",
+            "format_on_save": "off"
         },
         "YAML": {
-            "tab_size": 2,
-        },
+            "tab_size": 2
+        }
     },
+
+    "semantic_tokens": "combined",
+    "global_lsp_settings": {
+        "semantic_token_rules": [
+            {
+                "token_type": "todoKeyword",
+                "foreground_color": "#FF8C00",
+                "background_color": "#2B1700",
+                "font_weight": "bold"
+            },
+            {
+                "token_type": "fixmeKeyword",
+                "foreground_color": "#FF2D55",
+                "background_color": "#2B0011",
+                "font_weight": "bold"
+            },
+            {
+                "token_type": "hackKeyword",
+                "foreground_color": "#FFD60A",
+                "background_color": "#272100",
+                "font_weight": "bold"
+            },
+            {
+                "token_type": "noteKeyword",
+                "foreground_color": "#0A84FF",
+                "background_color": "#001B2B",
+                "font_weight": "bold"
+            },
+            {
+                "token_type": "infoKeyword",
+                "foreground_color": "#0A84FF",
+                "background_color": "#001B2B",
+                "font_weight": "bold"
+            },
+            {
+                "token_type": "warnKeyword",
+                "foreground_color": "#FF9F0A",
+                "background_color": "#271B00",
+                "font_weight": "bold"
+            },
+            {
+                "token_type": "warningKeyword",
+                "foreground_color": "#FF9F0A",
+                "background_color": "#271B00",
+                "font_weight": "bold"
+            },
+            {
+                "token_type": "bugKeyword",
+                "foreground_color": "#FF453A",
+                "background_color": "#2B0A00",
+                "font_weight": "bold"
+            },
+            {
+                "token_type": "xxxKeyword",
+                "foreground_color": "#BF5AF2",
+                "background_color": "#1B0029",
+                "font_weight": "bold"
+            },
+            {
+                "token_type": "deprecatedKeyword",
+                "foreground_color": "#98989D",
+                "background_color": "#1A1A1A",
+                "font_weight": "bold"
+            }
+        ]
+    }
 }

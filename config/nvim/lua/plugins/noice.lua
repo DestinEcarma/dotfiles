@@ -8,7 +8,7 @@ return {
 	},
 	init = function()
 		require("which-key").add({
-			{ "<leader>Nd", "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice", mode = { "n" } },
+			{ "<leader>nd", "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice", mode = { "n" } },
 		})
 	end,
 	opts = {

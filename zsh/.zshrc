@@ -82,6 +82,3 @@ alias pacman-clean="sudo pacman -Rns \$(pacman -Qtdq)"
 
 # Load custom profile, if it exists
 [[ ! -f "$SCRIPT_DIR/.profile" ]] || source "$SCRIPT_DIR/.profile"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
