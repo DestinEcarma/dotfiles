@@ -47,6 +47,6 @@ end
 vim.api.nvim_create_user_command("FloatingTerminal", toggle_floating_terminal, { desc = "Toggle floating terminal" })
 vim.api.nvim_create_user_command("Terminal", toggle_terminal, { desc = "Toggle terminal" })
 
-vim.keymap.set({ "n", "t" }, "<C-`>", toggle_floating_terminal, { desc = "Toggle floating terminal" })
-vim.keymap.set({ "n", "t" }, "<A-`>", toggle_terminal, { desc = "Toggle terminal" })
+vim.keymap.set({ "n", "t" }, "<A-`>", toggle_floating_terminal, { desc = "Toggle floating terminal" })
+vim.keymap.set({ "n", "t" }, "<A-~>", toggle_terminal, { desc = "Toggle terminal" })
 vim.keymap.set({ "t" }, "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

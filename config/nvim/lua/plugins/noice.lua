@@ -21,6 +21,9 @@ return {
 			signature = {
 				enabled = false,
 			},
+			hover = {
+				silent = true,
+			},
 		},
 		presets = {
 			bottom_search = false,
@@ -33,6 +36,7 @@ return {
 	config = function(_, opts)
 		require("notify").setup({
 			background_colour = "#000000",
+			merge_duplicates = true,
 		})
 
 		require("noice").setup(opts)
