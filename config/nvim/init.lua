@@ -1,8 +1,10 @@
+-- Core Config
 require("config")
 require("config.terminal")
 require("config.autocmd")
 require("config.theme")
 
+-- Lazy.nvim Bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -18,8 +20,9 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+-- Plugins
 require("lazy").setup({
 	{ import = "plugins" },
-	{ import = "plugins.lsp" },
+	{ import = "plugins.ui" },
 	{ import = "plugins.themes" },
 })

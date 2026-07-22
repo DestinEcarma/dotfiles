@@ -1,7 +1,7 @@
 return {
 	"stevearc/conform.nvim",
 	tag = "stable",
-	event = "BufReadPre",
+	event = "User LazyFile",
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {

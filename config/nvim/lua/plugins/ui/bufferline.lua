@@ -1,10 +1,8 @@
 return {
 	"akinsho/bufferline.nvim",
 	version = "*",
-	dependencies = {
-		"catppuccin/nvim",
-		"nvim-tree/nvim-web-devicons",
-	},
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	event = "User LazyFile",
 
 	config = function()
 		require("bufferline").setup({

@@ -1,6 +1,6 @@
 return {
 	"SmiteshP/nvim-navic",
-	event = "BufReadPre",
+	event = "User LazyFile",
 	opts = {
 		icons = {
 			File = " ",
