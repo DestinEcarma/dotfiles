@@ -1,16 +1,6 @@
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
-	dependencies = {
-		"MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify",
-		"folke/which-key.nvim",
-	},
-	init = function()
-		require("which-key").add({
-			{ "<leader>nd", "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice", mode = { "n" } },
-		})
-	end,
 	opts = {
 		lsp = {
 			override = {
@@ -18,27 +8,18 @@ return {
 				["vim.lsp.util.stylize_markdown"] = true,
 				["cmp.entry.get_documentation"] = true,
 			},
-			signature = {
-				enabled = false,
-			},
 			hover = {
 				silent = true,
 			},
 		},
+		-- you can enable a preset for easier configuration
 		presets = {
 			bottom_search = false,
 			command_palette = true,
 			long_message_to_split = true,
 			inc_rename = false,
-			lsp_doc_border = true,
 		},
-	},
-	config = function(_, opts)
-		require("notify").setup({
-			background_colour = "#000000",
-			merge_duplicates = true,
-		})
 
-		require("noice").setup(opts)
-	end,
+		notify = { enabled = false },
+	},
 }

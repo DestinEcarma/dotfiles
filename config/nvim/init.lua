@@ -1,7 +1,7 @@
 require("config")
-require("config.remaps")
 require("config.terminal")
-require("config.lsp")
+require("config.autocmd")
+require("config.theme")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -18,8 +18,8 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins", {
-	ui = {
-		border = "rounded",
-	},
+require("lazy").setup({
+	{ import = "plugins" },
+	{ import = "plugins.lsp" },
+	{ import = "plugins.themes" },
 })

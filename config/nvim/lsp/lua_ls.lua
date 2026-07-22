@@ -4,15 +4,25 @@ return {
 	root_markers = { ".git", ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", "selene.toml", "selene.yml" },
 	settings = {
 		Lua = {
-			runtime = {
-				version = "LuaJIT",
-				pathStrict = true,
-			},
 			workspace = {
 				checkThirdParty = false,
-				library = {
-					vim.env.VIMRUNTIME,
-				},
+			},
+			codeLens = {
+				enable = true,
+			},
+			completion = {
+				callSnippet = "Replace",
+			},
+			doc = {
+				privateName = { "^_" },
+			},
+			hint = {
+				enable = true,
+				setType = false,
+				paramType = true,
+				paramName = "Disable",
+				semicolon = "Disable",
+				arrayIndex = "Disable",
 			},
 		},
 	},

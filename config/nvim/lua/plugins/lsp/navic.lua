@@ -1,5 +1,6 @@
 return {
 	"SmiteshP/nvim-navic",
+	event = "BufReadPre",
 	opts = {
 		icons = {
 			File = " ",
