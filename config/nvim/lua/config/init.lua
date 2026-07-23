@@ -70,3 +70,4 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.undodir = undodir
 vim.opt.autoread = true
+vim.opt.confirm = true

@@ -74,14 +74,17 @@ return {
         { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
         { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss Notifications" },
--- Word Navigation
+        { "<leader>v", function() vim.treesitter.select("parent") end, mode = { "n", "x" }, desc = "Increment Selection to Parent Node" },
+        { "<leader>V", function() vim.treesitter.select("child") end, mode = "x", desc = "Decrement Selection to Child Node" },
+
+        -- Word Navigation
         { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
         { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
         { "<a-n>", function() Snacks.words.jump(vim.v.count1, true) end, desc = "Next Reference" },
         { "<a-p>", function() Snacks.words.jump(-vim.v.count1, true) end, desc = "Prev Reference" },
 
         -- Basic
-        { "<C-s>", "<cmd>w<cr>", desc = "Save" },
+        { "<C-s>", "<cmd>update<cr>", desc = "Save" },
         { "<C-q>",
             function()
                 if not pcall(vim.cmd, "close") then
@@ -155,5 +158,8 @@ return {
         { "<Down>", "v:count == 0 ? 'gj' : 'j'", mode = { "n", "x" }, desc = "Down", expr = true, silent = true },
         { "k", "v:count == 0 ? 'gk' : 'k'", mode = { "n", "x" }, desc = "Up", expr = true, silent = true },
         { "<Up>", "v:count == 0 ? 'gk' : 'k'", mode = { "n", "x" }, desc = "Up", expr = true, silent = true },
+
+        -- Quickfix
+        {"<leader>q", function() require("quicker").toggle() end, desc = "Toggle Quickfix" },
     },
 }

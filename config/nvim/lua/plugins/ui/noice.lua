@@ -1,8 +1,12 @@
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",
+
+	---@module "noice"
+	---@type NoiceConfig
 	opts = {
 		lsp = {
+			progress = { enabled = false },
 			override = {
 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 				["vim.lsp.util.stylize_markdown"] = true,
@@ -13,10 +17,8 @@ return {
 		},
 		-- you can enable a preset for easier configuration
 		presets = {
-			bottom_search = false,
 			command_palette = true,
 			long_message_to_split = true,
-			inc_rename = false,
 		},
 
 		notify = { enabled = false },

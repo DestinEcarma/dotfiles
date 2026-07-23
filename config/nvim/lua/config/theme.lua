@@ -16,6 +16,7 @@ end
 
 -- Save theme on change
 vim.api.nvim_create_autocmd("ColorScheme", {
+	group = vim.api.nvim_create_augroup("SaveColorScheme", { clear = true }),
 	callback = function()
 		local theme = vim.g.colors_name
 		if not theme then

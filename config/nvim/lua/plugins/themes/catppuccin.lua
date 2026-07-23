@@ -4,6 +4,7 @@ return {
 	tag = "stable",
 	lazy = true,
 	priority = 1000,
+	---@module "catppuccin"
 	---@type CatppuccinOptions
 	opts = {
 		auto_integrations = true,
