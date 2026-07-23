@@ -74,8 +74,7 @@ return {
         { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
         { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss Notifications" },
-
-        -- Word Navigation
+-- Word Navigation
         { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
         { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference" },
         { "<a-n>", function() Snacks.words.jump(vim.v.count1, true) end, desc = "Next Reference" },
@@ -85,12 +84,12 @@ return {
         { "<C-s>", "<cmd>w<cr>", desc = "Save" },
         { "<C-q>",
             function()
-                if #vim.api.nvim_list_wins() > 1 then
-                    vim.cmd("close")
-                elseif #vim.tbl_filter(function(b) return vim.bo[b].buflisted end, vim.api.nvim_list_bufs()) > 1 then
-                    Snacks.bufdelete.delete()
-                else
-                    vim.cmd("q")
+                if not pcall(vim.cmd, "close") then
+                    if #vim.tbl_filter(function(b) return vim.bo[b].buflisted end, vim.api.nvim_list_bufs()) > 1 then
+                        Snacks.bufdelete.delete()
+                    else
+                        vim.cmd("q")
+                    end
                 end
             end,
             desc = "Quit Split / Delete Buffer / Quit",

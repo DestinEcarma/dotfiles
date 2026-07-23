@@ -3,7 +3,7 @@ local map = vim.keymap.set
 
 -- LSP Attach
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("LspBuffer", {}),
+	group = vim.api.nvim_create_augroup("LspBuffer", { clear = true }),
 	callback = function(args)
 		local buf = args.buf
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-	group = vim.api.nvim_create_augroup("HighlightYank", {}),
+	group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
 	callback = function()
 		vim.hl.on_yank()
 	end,
@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 
 -- Return to last position
 vim.api.nvim_create_autocmd("BufReadPost", {
-	group = vim.api.nvim_create_augroup("ReturnLastPosition", {}),
+	group = vim.api.nvim_create_augroup("ReturnLastPosition", { clear = true }),
 	callback = function()
 		if vim.o.diff then
 			return
@@ -91,7 +91,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- Wrap, linebreak, and spellcheck on markdown and text files
 vim.api.nvim_create_autocmd("FileType", {
-	group = vim.api.nvim_create_augroup("MarkdownTextFile", {}),
+	group = vim.api.nvim_create_augroup("MarkdownTextFile", { clear = true }),
 	pattern = { "markdown", "text", "gitcommit" },
 	callback = function()
 		vim.opt_local.wrap = true
@@ -102,7 +102,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Disable comment continuation for o key
 vim.api.nvim_create_autocmd("BufEnter", {
-	group = vim.api.nvim_create_augroup("NoComment", {}),
+	group = vim.api.nvim_create_augroup("NoComment", { clear = true }),
 	callback = function()
 		vim.opt_local.formatoptions:remove("o")
 	end,
