@@ -23,8 +23,9 @@ return {
 ██████  █████████████████████ ████ █████ █████ ████ ██████]],
 			},
 			sections = {
-				{ section = "header" },
-				{ section = "keys", padding = 1, gap = 1 },
+				{ section = "terminal", cmd = "tty-clock -t -c", height = 11, padding = 1 },
+				-- { section = "header" },
+				{ section = "keys", padding = 2, gap = 1 },
 				{
 					section = "recent_files",
 					icon = "",
@@ -33,7 +34,6 @@ return {
 					padding = 1,
 				},
 				{ section = "startup" },
-				{ section = "terminal", cmd = "tty-clock -t -c", height = 11 },
 			},
 		},
 		explorer = { enabled = true },

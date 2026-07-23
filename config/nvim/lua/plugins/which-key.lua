@@ -141,6 +141,7 @@ return {
         { "[e", diagnostic_goto(false, "ERROR"), desc = "Prev Error" },
         { "]w", diagnostic_goto(true, "WARN"), desc = "Next Warning" },
         { "[w", diagnostic_goto(false, "WARN"), desc = "Prev Warning" },
+        { "ge", vim.diagnostic.open_float, desc = "Open Line Diagnostic" },
 
         -- Delete Without Yank
         { "<leader>dd", "\"_dd", mode = "n" },

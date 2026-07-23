@@ -19,7 +19,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "gI", function() Snacks.picker.lsp_implementations() end, { desc = "Goto Implementation", buf = buf })
         map("n", "gy", function() Snacks.picker.lsp_type_definitions() end, { desc = "Goto Type Definition", buf = buf })
         map("n", "gD", function() Snacks.picker.lsp_declarations() end, { desc = "Goto Declaration", buf = buf })
-        map("n", "ge", vim.diagnostic.open_float, { desc = "Open Line Diagnostic", buf = buf })
         map("n", "K", vim.lsp.buf.hover, { desc = "Hover", buf = buf })
         map("n", "gK", vim.lsp.buf.signature_help, { desc = "Signature Help", buf = buf })
         map("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help", buf = buf })
