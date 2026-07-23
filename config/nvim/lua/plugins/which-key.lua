@@ -69,11 +69,9 @@ return {
         { "<leader>Z", function() Snacks.zen.zoom() end, desc = "Zoom" },
         { "<leader>.", function() Snacks.scratch() end, desc = "Scratch Buffer" },
         { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch" },
-        { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
         { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
         { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
         { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
-        { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
         { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss Notifications" },
 
@@ -84,8 +82,19 @@ return {
         { "<a-p>", function() Snacks.words.jump(-vim.v.count1, true) end, desc = "Prev Reference" },
 
         -- Basic
-        { "<C-s>", "<cmd>w<CR>", desc = "Save" },
-        { "<C-q>", "<cmd>q<CR>", desc = "Quit" },
+        { "<C-s>", "<cmd>w<cr>", desc = "Save" },
+        { "<C-q>",
+            function()
+                if #vim.api.nvim_list_wins() > 1 then
+                    vim.cmd("close")
+                elseif #vim.tbl_filter(function(b) return vim.bo[b].buflisted end, vim.api.nvim_list_bufs()) > 1 then
+                    Snacks.bufdelete.delete()
+                else
+                    vim.cmd("q")
+                end
+            end,
+            desc = "Quit Split / Delete Buffer / Quit",
+        },
         { "<C-a>", "ggVG", desc = "Select All" },
 
         -- Resize Windows
@@ -105,6 +114,7 @@ return {
         -- Buffers
         { "<S-h>", "<cmd>bprevious<cr>", desc = "Prev Buffer" },
         { "<S-l>", "<cmd>bnext<cr>", desc = "Next Buffer" },
+        { "<leader>bd", function() Snacks.bufdelete.other() end, desc = "Delete Other Buffers" },
 
         -- Navigation Centering
         { "n", "nzzzv", desc = "Next Search Center" },
@@ -115,15 +125,10 @@ return {
         { "<C-d>", "<C-d>zz", desc = "Half Page Down" },
 
         -- Indent
-        { "<C-]>", ">>", desc = "Indent" },
+        { "<C-]>", ">>", desc = "Indent", },
         { "<C-[>", "<<", desc = "Unindent" },
-        { "<C-]>", ">gv", mode = { "n", "v" }, desc = "Indent" },
-        { "<C-[>", "<gv", mode = { "n", "v" }, desc = "Unindent" },
-
-        -- Tabs
-        { "<leader><tab><tab>", "<cmd>tabnew<CR>", desc = "New Tab" },
-        { "<leader><tab>]", "<cmd>tabnext<CR>", desc = "Next Tab" },
-        { "<leader><tab>[", "<cmd>tabprevious<CR>", desc = "Prev Tab" },
+        { "<C-]>", ">gv", mode = "v", desc = "Indent" },
+        { "<C-[>", "<gv", mode = "v", desc = "Unindent" },
 
         -- Window Splits
         { "<leader>-", "<C-W>s", desc = "Split Below" },

@@ -57,3 +57,16 @@ vim.opt.smartcase = true
 if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
 	vim.opt.shell = "pwsh"
 end
+
+-- Backup
+local undodir = vim.fn.expand("~/.cache/nvim/undodir")
+if vim.fn.isdirectory(undodir) == 0 then
+	vim.fn.mkdir(undodir)
+end
+
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undodir = undodir
+vim.opt.autoread = true

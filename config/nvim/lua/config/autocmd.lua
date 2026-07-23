@@ -27,6 +27,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename", buf = buf })
         map({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action", buf = buf })
         map("n", "<leader>ih", function() Snacks.toggle.inlay_hints() end, { desc = "Display Inlay Hints", buf = buf })
+        map("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, { desc = "LSP Symbols", buf = buf })
 		-- stylua: ignore end
 
 		-- Codelens
@@ -52,11 +53,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("HighlightYank", {}),
 	callback = function()
-		if vim.fn.has("nvim-0.13") == 1 then
-			vim.hl.hl_op()
-		else
-			(vim.hl or vim.highlight).on_yank()
-		end
+		vim.hl.on_yank()
 	end,
 })
 
@@ -65,5 +62,29 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 	group = vim.api.nvim_create_augroup("LazyFile", { clear = true }),
 	callback = function()
 		vim.api.nvim_exec_autocmds("User", { pattern = "LazyFile" })
+	end,
+})
+
+-- Return to last position
+vim.api.nvim_create_autocmd("BufReadPost", {
+	group = vim.api.nvim_create_augroup("ReturnLastPosition", {}),
+	callback = function()
+		if vim.o.diff then
+			return
+		end
+
+		local last_pos = vim.api.nvim_buf_get_mark(0, '"')
+		local last_line = vim.api.nvim_buf_line_count(0)
+
+		local row = last_pos[1]
+		if row < 1 or row > last_line then
+			return
+		end
+
+		if pcall(vim.api.nvim_win_set_cursor, 0, last_pos) then
+			vim.schedule(function()
+				vim.cmd("normal! zz")
+			end)
+		end
 	end,
 })

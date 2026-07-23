@@ -9,7 +9,33 @@ return {
 
 	---@type snacks.Config
 	opts = {
-		dashboard = { enabled = true },
+		bigfile = { enabled = true },
+		dashboard = {
+			preset = {
+				header = [[
+                                                                   
+      ████ ██████           █████      ██                    
+     ███████████             █████                            
+     █████████ ███████████████████ ███   ███████████  
+    █████████  ███    █████████████ █████ ██████████████  
+   █████████ ██████████ █████████ █████ █████ ████ █████  
+ ███████████ ███    ███ █████████ █████ █████ ████ █████ 
+██████  █████████████████████ ████ █████ █████ ████ ██████]],
+			},
+			sections = {
+				{ section = "header" },
+				{ section = "keys", padding = 1, gap = 1 },
+				{
+					section = "recent_files",
+					icon = "",
+					title = "Recet Files",
+					indent = 2,
+					padding = 1,
+				},
+				{ section = "startup" },
+				{ section = "terminal", cmd = "tty-clock -t -c", height = 11 },
+			},
+		},
 		explorer = { enabled = true },
 		indent = {
 			enabled = true,
@@ -27,6 +53,7 @@ return {
 				},
 			},
 		},
+		quickfile = { enabled = true },
 		scope = { enabled = false },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
