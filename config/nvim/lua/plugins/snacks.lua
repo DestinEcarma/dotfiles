@@ -7,6 +7,7 @@ return {
 	priority = 1000,
 	lazy = false,
 
+	---@module "snacks"
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
@@ -43,6 +44,8 @@ return {
 		picker = {
 			sources = {
 				explorer = {
+					hidden = true,
+					ignored = true,
 					auto_close = true,
 					layout = { layout = { position = "right" } },
 				},

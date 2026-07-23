@@ -14,6 +14,19 @@ return {
 	event = "VeryLazy",
 	dependencies = { "echasnovski/mini.nvim" },
 
+	---@module "which-key"
+	---@type wk.Config
+	opts = {
+		spec = {
+			{ "<leader>b", group = "Buffer" },
+			{ "<leader>c", group = "Code" },
+			{ "<leader>f", group = "Find" },
+			{ "<leader>g", group = "Git" },
+			{ "<leader>s", group = "Search" },
+			{ "<leader>u", group = "Uncategorized" },
+		},
+	},
+
     -- stylua: ignore
     keys = {
         -- Snacks Core
@@ -22,7 +35,6 @@ return {
         { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
 
         -- Find
-        { "<leader>f", group = "Find" },
         { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>fg", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
@@ -32,7 +44,6 @@ return {
         { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
 
         -- Git
-        { "<leader>g", group = "Git" },
         { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
         { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
         { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
@@ -41,7 +52,6 @@ return {
         { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "Git Log File" },
 
         -- Search
-        { "<leader>s", group = "Search" },
         { "<leader>sb", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
         { "<leader>sB", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
         { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Word / Selection", mode = { "n", "x" } },
@@ -62,7 +72,7 @@ return {
         { "<leader>sq", function() Snacks.picker.qflist() end, desc = "Quickfix List" },
         { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
         { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
-        { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
+        { "<leader>sc", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
 
         -- Utilities
         { "<leader>z", function() Snacks.zen() end, desc = "Zen Mode" },
@@ -76,6 +86,7 @@ return {
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss Notifications" },
         { "<leader>v", function() vim.treesitter.select("parent") end, mode = { "n", "x" }, desc = "Increment Selection to Parent Node" },
         { "<leader>V", function() vim.treesitter.select("child") end, mode = "x", desc = "Decrement Selection to Child Node" },
+        { "<leader>us", function () Snacks.picker.spelling() end, desc = "Spellings" },
 
         -- Word Navigation
         { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
@@ -160,6 +171,9 @@ return {
         { "<Up>", "v:count == 0 ? 'gk' : 'k'", mode = { "n", "x" }, desc = "Up", expr = true, silent = true },
 
         -- Quickfix
-        {"<leader>q", function() require("quicker").toggle() end, desc = "Toggle Quickfix" },
-    },
+        { "<leader>q", function() require("quicker").toggle() end, desc = "Toggle Quickfix" },
+        { "<M-l>", "<cmd>cnext<cr>", desc = "Next Quickfix" },
+        { "<M-h>", "<cmd>cprev<cr>", desc = "Prev Quickfix" },
+    }
+,
 }
