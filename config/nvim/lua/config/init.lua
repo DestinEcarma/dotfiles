@@ -59,7 +59,7 @@ if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
 end
 
 -- Backup
-local undodir = vim.fn.expand("~/.cache/nvim/undodir")
+local undodir = vim.fn.stdpath("cache") .. "/undo"
 if vim.fn.isdirectory(undodir) == 0 then
 	vim.fn.mkdir(undodir)
 end
