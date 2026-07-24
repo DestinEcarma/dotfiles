@@ -20,8 +20,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- LSP keymaps
         -- stylua: ignore start
-        map("n", "gd", function() Snacks.picker.lsp_definitions() end, "Goto Definition")
-        map("n", "gr", function() Snacks.picker.lsp_references() end, "References", { nowait = true })
+        map("n", "gd", function() Snacks.picker.lsp_definitions() end, "Goto Definition") map("n", "gr", function() Snacks.picker.lsp_references() end, "References", { nowait = true })
         map("n", "gI", function() Snacks.picker.lsp_implementations() end, "Goto Implementation")
         map("n", "gy", function() Snacks.picker.lsp_type_definitions() end, "Goto Type Definition")
         map("n", "gD", function() Snacks.picker.lsp_declarations() end, "Goto Declaration")
@@ -32,7 +31,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         map("n", "<leader>rn", vim.lsp.buf.rename, "Rename")
         map({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, "Code Action")
         map("n", "<leader>ih", function() Snacks.toggle.inlay_hints():toggle() end, "Display Inlay Hints")
-        map("n", "<leader>ss", function() Snacks.picker.lsp_symbols() end, "LSP Symbols")
+        map("n", "<leader>fs", function() Snacks.picker.lsp_symbols() end, "LSP Symbols")
+		map({ "n", "i", "s" }, "<c-f>", function() if not require("noice.lsp").scroll(4) then return "<c-f>" end end, "Scoll Down", { silent = true, expr = true })
+		map({ "n", "i", "s" }, "<c-b>", function() if not require("noice.lsp").scroll(-4) then return "<c-b>" end end, "Scroll Up", { silent = true, expr = true })
 		-- stylua: ignore end
 
 		-- Codelens
@@ -180,75 +181,10 @@ vim.api.nvim_create_autocmd({ "BufAdd", "BufReadPost" }, {
 	end,
 })
 
-local session_group = vim.api.nvim_create_augroup("SessionManagement", { clear = true })
-local session_dir = vim.fn.stdpath("state") .. "/sessions/"
-vim.fn.mkdir(session_dir, "p")
-
-local function session_path()
-	local cwd = vim.fn.getcwd()
-	local name = cwd:gsub("[/\\:]", "%%")
-	return session_dir .. name .. ".vim"
-end
-
--- Save the current session when Neovim is about to exit
+-- Delete old sessions (30 days)
 vim.api.nvim_create_autocmd("VimLeavePre", {
-	group = session_group,
+	group = vim.api.nvim_create_augroup("SessionManagement", { clear = true }),
 	callback = function()
-		vim.cmd("mksession! " .. vim.fn.fnameescape(session_path()))
-
-		local function delete_old_sessions(max_age_days)
-			local uv = vim.loop
-			local now = os.time()
-			local max_age_seconds = max_age_days * 24 * 60 * 60
-
-			local fd = uv.fs_scandir(session_dir)
-			if not fd then
-				return
-			end
-
-			while true do
-				local name, type = uv.fs_scandir_next(fd)
-				if not name then
-					break
-				end
-
-				if type ~= "file" and name:match("%.vim$") then
-					goto continue
-				end
-
-				local path = session_dir .. name
-				local stat = uv.fs_stat(path)
-
-				if stat and stat.mtime and (now - stat.mtime.sec) > max_age_seconds then
-					uv.fs_unlink(path)
-				end
-
-				::continue::
-			end
-		end
-
-		delete_old_sessions(30)
-	end,
-})
-
--- On startup, prompt to restore the saved session for the current working directory
-vim.api.nvim_create_autocmd("VimEnter", {
-	group = session_group,
-	callback = function()
-		local file = session_path()
-
-		if vim.fn.argc() == 0 and vim.fn.filereadable(file) ~= 1 then
-			return
-		end
-
-		vim.schedule(function()
-			vim.ui.select({ "Yes", "No" }, {
-				prompt = "Restore last session?",
-			}, function(choice)
-				if choice == "Yes" then
-					vim.cmd("source " .. vim.fn.fnameescape(file))
-				end
-			end)
-		end)
+		require("utils.dsessions").delete_old_sessions(30)
 	end,
 })

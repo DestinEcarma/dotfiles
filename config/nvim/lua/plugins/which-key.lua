@@ -22,7 +22,7 @@ return {
 			{ "<leader>c", group = "Code" },
 			{ "<leader>f", group = "Find" },
 			{ "<leader>g", group = "Git" },
-			{ "<leader>s", group = "Search" },
+			{ "<leader>s", group = "Search / Session" },
 			{ "<leader>u", group = "Uncategorized" },
 		},
 	},
@@ -42,6 +42,7 @@ return {
         { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
         { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
         { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+        { "<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
 
         -- Git
         { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
@@ -82,11 +83,29 @@ return {
         { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
         { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse", mode = { "n", "v" } },
         { "<leader>gg", function() Snacks.lazygit() end, desc = "Lazygit" },
-        { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "Workspace Symbols" },
         { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss Notifications" },
         { "<leader>v", function() vim.treesitter.select("parent") end, mode = { "n", "x" }, desc = "Increment Selection to Parent Node" },
         { "<leader>V", function() vim.treesitter.select("child") end, mode = "x", desc = "Decrement Selection to Child Node" },
         { "<leader>us", function () Snacks.picker.spelling() end, desc = "Spellings" },
+        {
+            "<leader>uq",
+            function()
+                local items = {}
+
+                for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                    if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].modified then
+                        local name = vim.api.nvim_buf_get_name(buf)
+                        if name ~= "" then
+                            table.insert(items, { filename = name, lnum = 1, col = 1, text = "unsaved buffer" })
+                        end
+                    end
+                end
+
+                vim.fn.setqflist({}, " ", { title = "Unsaved files", items = items })
+                vim.cmd.copen()
+            end,
+            desc = "Quickfix unsaved buffers"
+        },
 
         -- Word Navigation
         { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference" },
@@ -96,7 +115,8 @@ return {
 
         -- Basic
         { "<C-s>", "<cmd>update<cr>", desc = "Save" },
-        { "<C-q>",
+        {
+            "<C-q>",
             function()
                 if not pcall(vim.cmd, "close") then
                     if #vim.tbl_filter(function(b) return vim.bo[b].buflisted end, vim.api.nvim_list_bufs()) > 1 then
@@ -174,6 +194,11 @@ return {
         { "<leader>q", function() require("quicker").toggle() end, desc = "Toggle Quickfix" },
         { "<M-l>", "<cmd>cnext<cr>", desc = "Next Quickfix" },
         { "<M-h>", "<cmd>cprev<cr>", desc = "Prev Quickfix" },
+
+        -- Session
+        { "<leader>ss", require("utils.dsessions").save_session, desc = "Save Session", },
+        { "<leader>sr", require("utils.dsessions").restore_session, },
+        { "<leader>sl", require("utils.dsessions").session_list, desc = "List Sessions" },
     }
 ,
 }
