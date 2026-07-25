@@ -188,7 +188,7 @@ vim.api.nvim_create_autocmd({ "BufAdd", "BufReadPost" }, {
 vim.api.nvim_create_autocmd("VimLeavePre", {
 	group = vim.api.nvim_create_augroup("SessionManagement", { clear = true }),
 	callback = function()
-		require("utils.dsessions").delete_old_sessions(30)
+		require("config.nvim.lua.utils.sessions").delete_old_sessions(30)
 	end,
 })
 

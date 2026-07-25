@@ -31,7 +31,22 @@ return {
     keys = {
         -- Snacks Core
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
-        { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
+        {
+            "<leader>n",
+            function()
+                Snacks.picker.notifications({
+                    layout = "vertical",
+                    confirm = function (picker, item)
+                        if not item then
+                            return
+                        end
+                        picker:show_preview()
+                        picker:focus("preview")
+                    end
+                })
+            end,
+            desc = "Notification History"
+        },
         { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
 
         -- Find
@@ -196,9 +211,9 @@ return {
         { "<M-h>", "<cmd>cprev<cr>", desc = "Prev Quickfix" },
 
         -- Session
-        { "<leader>ss", require("utils.dsessions").save_session, desc = "Save Session", },
-        { "<leader>sr", require("utils.dsessions").restore_session, desc = "Restore Session" },
-        { "<leader>sl", require("utils.dsessions").session_list, desc = "List Sessions" },
+        { "<leader>ss", require("utils.sessions").save_session, desc = "Save Session", },
+        { "<leader>sr", require("utils.sessions").restore_session, desc = "Restore Session" },
+        { "<leader>sl", require("utils.sessions").session_list, desc = "List Sessions" },
     }
 ,
 }

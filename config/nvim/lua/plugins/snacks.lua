@@ -61,9 +61,9 @@ return {
 	},
 	{
 		dir = vim.fn.stdpath("config"),
-		name = "dsessions",
+		name = "sessions",
 		config = function()
-			require("utils.dsessions").setup()
+			require("utils.sessions").setup()
 		end,
 	},
 }

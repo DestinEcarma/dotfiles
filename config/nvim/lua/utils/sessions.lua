@@ -172,6 +172,7 @@ function M.session_list()
 		title = "Sessions",
 		finder = get_session_items,
 		format = session_list_format,
+		layout = "select",
 		actions = {
 			delete_session = function(picker, item)
 				delete_session(picker, item)
