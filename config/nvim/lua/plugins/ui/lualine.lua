@@ -12,15 +12,18 @@ return {
 			lualine_a = { "mode" },
 			lualine_b = { "filename", "branch" },
 			lualine_c = {
-				function()
-					local rec_key = vim.fn.reg_recording()
+				{
+					function()
+						local rec_key = vim.fn.reg_recording()
 
-					if rec_key ~= "" then
-						return " " .. rec_key
-					end
+						if rec_key == "" then
+							return ""
+						end
 
-					return ""
-				end,
+						return "● REC @" .. rec_key
+					end,
+					color = "DiagnosticError",
+				},
 			},
 			lualine_x = { "diagnostics" },
 			lualine_y = { "filetype" },

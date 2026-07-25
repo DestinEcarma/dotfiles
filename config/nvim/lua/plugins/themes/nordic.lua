@@ -6,8 +6,10 @@ return {
 	---@type NordicOptions
 	opts = {
 		on_highlight = function(highlights, palette)
-			highlights.WinBar = { bg = palette.bg, fg = palette.fg }
-			highlights.WinBarNC = { bg = palette.bg, fg = palette.gray5 }
+			highlights.WinBar = { link = "Normal", cterm = { bold = true } }
+			highlights.WinBarNC = { link = "Normal", cterm = { bold = true } }
+
+			highlights.FloatTitle = { bg = palette.black1, fg = palette.yellow.base }
 
 			highlights.NavicText = { bg = palette.bg, fg = palette.white0_normal }
 			highlights.NavicSeparator = { bg = palette.bg, fg = palette.gray5 }

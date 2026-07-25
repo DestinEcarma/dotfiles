@@ -19,7 +19,10 @@ return {
 		appearance = { nerd_font_variant = "mono" },
 
 		completion = {
-			list = { selection = { preselect = false, auto_insert = false } },
+			list = { selection = {
+				preselect = false,
+				auto_insert = false,
+			} },
 
 			menu = {
 				max_height = 25,
@@ -56,6 +59,7 @@ return {
 		},
 
 		fuzzy = { implementation = "prefer_rust_with_warning" },
+
 		cmdline = { enabled = false },
 	},
 	opts_extend = { "sources.default" },

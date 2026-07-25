@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			end
 
 			map("n", "<leader>cC", codeLens, "Display Codelens")
-			map({ "n", "x" }, "<leader>cc", codeLens, "Run Codelens")
+			map({ "n", "x" }, "<leader>cc", vim.lsp.codelens.run, "Run Codelens")
 		end
 
 		-- Navic (breadcrumbs)
@@ -136,9 +136,11 @@ vim.api.nvim_create_autocmd("LspProgress", {
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 		local value = ev.data.params.value
+
 		if not client or type(value) ~= "table" then
 			return
 		end
+
 		local p = progress[client.id]
 
 		for i = 1, #p + 1 do
@@ -148,7 +150,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
 					msg = ("[%3d%%] %s%s"):format(
 						value.kind == "end" and 100 or value.percentage or 100,
 						value.title or "",
-						value.message and (" **%s**"):format(value.message) or ""
+						value.message and (" %s"):format(value.message) or ""
 					),
 					done = value.kind == "end",
 				}
@@ -157,18 +159,19 @@ vim.api.nvim_create_autocmd("LspProgress", {
 		end
 
 		local msg = {} ---@type string[]
+
 		progress[client.id] = vim.tbl_filter(function(v)
 			return table.insert(msg, v.msg) or not v.done
 		end, p)
 
-		local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+		-- local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
 		vim.notify(table.concat(msg, "\n"), "info", {
 			id = "lsp_progress",
 			title = client.name,
-			opts = function(notif)
-				notif.icon = #progress[client.id] == 0 and " "
-					or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
-			end,
+			-- opts = function(notif)
+			-- 	notif.icon = #progress[client.id] == 0 and " "
+			-- 		or spinner[math.floor(vim.uv.hrtime() / (1e6 * 80)) % #spinner + 1]
+			-- end,
 		})
 	end,
 })
@@ -186,5 +189,13 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 	group = vim.api.nvim_create_augroup("SessionManagement", { clear = true }),
 	callback = function()
 		require("utils.dsessions").delete_old_sessions(30)
+	end,
+})
+
+-- Close keymap for CodeRunner
+vim.api.nvim_create_autocmd("TermOpen", {
+	group = vim.api.nvim_create_augroup("RunClose", { clear = true }),
+	callback = function(ev)
+		vim.keymap.set("n", "q", "<cmd>q<CR>", { buffer = ev.buf, silent = true })
 	end,
 })

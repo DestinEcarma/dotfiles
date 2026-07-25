@@ -6,18 +6,18 @@ return {
 	---@type DraculaConfig
 	opts = {
 		overrides = function(colors)
-			vim.api.nvim_set_hl(0, "Visual", { bg = "#4C566A", blend = 20 })
 			return {
-				WinBar = { bg = colors.bg, fg = colors.fg, cterm = { bold = true } },
-				WinBarNc = { bg = colors.bg, fg = colors.fg, cterm = { bold = true } },
+				WinBar = { link = "Normal", cterm = { bold = true } },
+				WinBarNc = { link = "Normal", cterm = { bold = true } },
+
 				NormalFloat = { bg = colors.menu, fg = colors.fg },
 				FloatBorder = { bg = colors.menu },
+				FloatTitle = { bg = colors.menu, fg = colors.cyan },
+
 				SnacksPickerBorder = { bg = colors.menu, fg = colors.comment },
 				SnacksPickerTitle = { bg = colors.menu, fg = colors.cyan, bold = true, cterm = { bold = true } },
 
-				-- HACK: Somehow picker's title/lable does not use SnacksPickerTitle
-				Title = { bg = colors.menu, fg = colors.cyan },
-				SnacksDashboardTitle = { bg = colors.bg, fg = colors.cyan },
+				-- TODO: Fix the color of bufferline.
 			}
 		end,
 	},

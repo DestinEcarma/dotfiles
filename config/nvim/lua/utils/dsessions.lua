@@ -207,6 +207,12 @@ end
 ---@param file string? Defaults to M.session_path()
 function M.restore_session(file)
 	file = file or M.session_path()
+
+	if not vim.uv.fs_stat(file) then
+		Snacks.notify.warn("No session saved for this directory", { id = "sesssion", title = "Session" })
+		return
+	end
+
 	vim.cmd("source " .. vim.fn.fnameescape(file))
 	Snacks.notify.info("Session restored!", { id = "session", title = "Session" })
 end

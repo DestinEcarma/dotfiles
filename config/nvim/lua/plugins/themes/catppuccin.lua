@@ -11,6 +11,8 @@ return {
 		custom_highlights = function(colors)
 			return {
 				WinSeparator = { fg = colors.mantle },
+
+				FloatTitle = { bg = colors.mantle, fg = colors.blue },
 			}
 		end,
 	},

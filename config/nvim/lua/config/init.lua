@@ -30,6 +30,7 @@ vim.opt.cursorline = true
 vim.opt.wrap = false
 vim.opt.termguicolors = true
 vim.opt.showmode = false
+vim.opt.signcolumn = "yes"
 
 -- Windows
 vim.opt.splitbelow = true

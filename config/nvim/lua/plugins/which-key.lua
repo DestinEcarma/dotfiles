@@ -197,7 +197,7 @@ return {
 
         -- Session
         { "<leader>ss", require("utils.dsessions").save_session, desc = "Save Session", },
-        { "<leader>sr", require("utils.dsessions").restore_session, },
+        { "<leader>sr", require("utils.dsessions").restore_session, desc = "Restore Session" },
         { "<leader>sl", require("utils.dsessions").session_list, desc = "List Sessions" },
     }
 ,

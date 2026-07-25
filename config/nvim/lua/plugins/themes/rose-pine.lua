@@ -7,8 +7,8 @@ return {
 	---@type Options
 	opts = {
 		highlight_groups = {
-			WinBar = { bg = "base", fg = "text", cterm = { bold = true } },
-			WinBarNc = { bg = "base", fg = "text", cterm = { bold = true } },
+			WinBar = { link = "Normal", cterm = { bold = true } },
+			WinBarNC = { link = "Normal", cterm = { bold = true } },
 		},
 	},
 }
