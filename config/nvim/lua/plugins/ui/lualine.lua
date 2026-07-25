@@ -7,6 +7,7 @@ return {
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 			globalstatus = true,
+			refresh = { refresh_time = 50 },
 		},
 		sections = {
 			lualine_a = { "mode" },
@@ -15,19 +16,20 @@ return {
 				{
 					function()
 						local rec_key = vim.fn.reg_recording()
-
-						if rec_key == "" then
-							return ""
-						end
-
-						return "● REC @" .. rec_key
+						return rec_key == "" and "" or "● REC @" .. rec_key
 					end,
 					color = "DiagnosticError",
 				},
 			},
 			lualine_x = { "diagnostics" },
 			lualine_y = { "filetype" },
-			lualine_z = { "location", "progress" },
+			lualine_z = {
+				"location",
+				"progress",
+				function()
+					return " " .. os.date("%H:%M")
+				end,
+			},
 		},
 		inactive_sections = {
 			lualine_a = { "filename" },
