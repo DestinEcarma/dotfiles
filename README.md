@@ -7,7 +7,7 @@ This is my dotfiles configuration, feel free to use them however you want.
 ## Recommended Utilities
 
 - [Bat](https://github.com/sharkdp/bat?tab=readme-ov-file#installation)
-- [Exa](https://github.com/ogham/exa?tab=readme-ov-file#installation)
+- [Eza](https://github.com/eza-community/eza#installation)
 - [Fzf](https://github.com/junegunn/fzf?tab=readme-ov-file#installation)
 - [Zoxide](https://github.com/ajeetdsouza/zoxide?tab=readme-ov-file#installation)
 - [Ripgrep](https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation)
