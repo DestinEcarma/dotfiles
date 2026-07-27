@@ -6,7 +6,9 @@ alias cat="bat"
 alias grep="rg"
 alias tree="eza -T"
 alias ..="cd .."
+alias -- -="cd -"
 alias c="clear"
+alias vim="sudo -E nvim"
 alias src="source ~/.zshrc"
 
 # Pacman

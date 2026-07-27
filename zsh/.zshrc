@@ -25,6 +25,7 @@ zinit light romkatv/powerlevel10k
 [[ ! -f "$HOME/.p10k.zsh" ]] || source "$HOME/.p10k.zsh"
 
 export FZF_DEFAULT_OPTS="--bind \"ctrl-d:preview-half-page-down,ctrl-u:preview-half-page-up\""
+export KEYTIMEOUT=1
 
 source "$SCRIPT_DIR/plugins.zsh"
 source "$SCRIPT_DIR/history.zsh"
