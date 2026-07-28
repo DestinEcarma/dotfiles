@@ -1,13 +1,8 @@
 return {
+	{ "nvim-lua/plenary.nvim", lazy = true },
 	{
 		"folke/todo-comments.nvim",
 		event = "User LazyFile",
-		dependencies = { "nvim-lua/plenary.nvim" },
-        -- stylua: ignore
-		keys = {
-			{ "<leader>st", function() Snacks.picker.todo_comments() end, desc = "Todo", },
-            { "<leader>sT", function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME", "HACK" } }) end, desc = "Todo/Fix/Fixme/Hack", },
-		},
 		config = true,
 	},
 	{

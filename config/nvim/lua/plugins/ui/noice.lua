@@ -13,6 +13,7 @@ return {
 				["vim.lsp.util.stylize_markdown"] = true,
 			},
 			hover = { silent = true },
+			signature = { auto_open = { enabled = false } },
 		},
 		-- you can enable a preset for easier configuration
 		presets = {

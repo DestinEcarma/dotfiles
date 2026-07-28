@@ -26,9 +26,7 @@ return {
 			lualine_z = {
 				"location",
 				"progress",
-				function()
-					return " " .. os.date("%H:%M")
-				end,
+				function() return " " .. os.date("%H:%M") end,
 			},
 		},
 		inactive_sections = {

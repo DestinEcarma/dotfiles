@@ -1,8 +1,11 @@
 -- Core Config
 require("config")
-require("config.terminal")
 require("config.autocmd")
 require("config.theme")
+
+-- Local Plugins
+require("local.sessions").setup()
+require("local.float-term").setup()
 
 -- Lazy.nvim Bootstrap
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

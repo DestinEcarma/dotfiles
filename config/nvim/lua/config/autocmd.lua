@@ -5,9 +5,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local buf = args.buf
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-		if not client then
-			return
-		end
+		if not client then return end
 
 		local map = function(mode, lhs, rhs, desc, others)
 			local opts = vim.tbl_extend("force", {
@@ -17,6 +15,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 			vim.keymap.set(mode, lhs, rhs, opts)
 		end
+
+		print(client.name)
 
         -- LSP keymaps
         -- stylua: ignore start
@@ -58,17 +58,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
-	callback = function()
-		vim.hl.on_yank()
-	end,
+	callback = function() vim.hl.on_yank() end,
 })
 
 -- LazyFile event trigger
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile", "BufWritePre" }, {
 	group = vim.api.nvim_create_augroup("LazyFile", { clear = true }),
-	callback = function()
-		vim.api.nvim_exec_autocmds("User", { pattern = "LazyFile" })
-	end,
+	callback = function() vim.api.nvim_exec_autocmds("User", { pattern = "LazyFile" }) end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -81,23 +77,15 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("BufReadPost", {
 	group = vim.api.nvim_create_augroup("ReturnLastPosition", { clear = true }),
 	callback = function(ev)
-		if vim.o.diff then
-			return
-		end
+		if vim.o.diff then return end
 
 		local last_pos = vim.api.nvim_buf_get_mark(ev.buf, '"')
 		local last_line = vim.api.nvim_buf_line_count(ev.buf)
 
 		local row = last_pos[1]
-		if row < 1 or row > last_line then
-			return
-		end
+		if row < 1 or row > last_line then return end
 
-		if pcall(vim.api.nvim_win_set_cursor, 0, last_pos) then
-			vim.schedule(function()
-				vim.cmd("normal! zz")
-			end)
-		end
+		if pcall(vim.api.nvim_win_set_cursor, 0, last_pos) then vim.schedule(function() vim.cmd("normal! zz") end) end
 	end,
 })
 
@@ -108,6 +96,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.opt_local.wrap = true
 		vim.opt_local.linebreak = true
+		vim.opt_local.breakindent = true
 		vim.opt_local.spell = true
 	end,
 })
@@ -115,9 +104,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Disable comment continuation for o key
 vim.api.nvim_create_autocmd("BufEnter", {
 	group = vim.api.nvim_create_augroup("NoComment", { clear = true }),
-	callback = function()
-		vim.opt_local.formatoptions:remove("o")
-	end,
+	callback = function() vim.opt_local.formatoptions:remove("o") end,
 })
 
 -- Save quickfix files (For quicker.nvim)
@@ -137,9 +124,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 		local value = ev.data.params.value
 
-		if not client or type(value) ~= "table" then
-			return
-		end
+		if not client or type(value) ~= "table" then return end
 
 		local p = progress[client.id]
 
@@ -160,9 +145,7 @@ vim.api.nvim_create_autocmd("LspProgress", {
 
 		local msg = {} ---@type string[]
 
-		progress[client.id] = vim.tbl_filter(function(v)
-			return table.insert(msg, v.msg) or not v.done
-		end, p)
+		progress[client.id] = vim.tbl_filter(function(v) return table.insert(msg, v.msg) or not v.done end, p)
 
 		-- local spinner = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
 		vim.notify(table.concat(msg, "\n"), "info", {
@@ -179,23 +162,17 @@ vim.api.nvim_create_autocmd("LspProgress", {
 -- Mark system and dependency files as unlisted scratch buffers
 vim.api.nvim_create_autocmd({ "BufAdd", "BufReadPost" }, {
 	pattern = { "*/node_modules/*", "/usr/share/nvim/*", "*/.local/share/nvim/*" },
-	callback = function(args)
-		vim.bo[args.buf].buflisted = false
-	end,
+	callback = function(args) vim.bo[args.buf].buflisted = false end,
 })
 
 -- Delete old sessions (30 days)
 vim.api.nvim_create_autocmd("VimLeavePre", {
 	group = vim.api.nvim_create_augroup("SessionManagement", { clear = true }),
-	callback = function()
-		require("config.nvim.lua.utils.sessions").delete_old_sessions(30)
-	end,
+	callback = function() require("local.sessions").delete_old_sessions(30) end,
 })
 
 -- Close keymap for CodeRunner
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = vim.api.nvim_create_augroup("RunClose", { clear = true }),
-	callback = function(ev)
-		vim.keymap.set("n", "q", "<cmd>q<CR>", { buffer = ev.buf, silent = true })
-	end,
+	callback = function(ev) vim.keymap.set("n", "q", "<cmd>q<CR>", { buffer = ev.buf, silent = true }) end,
 })

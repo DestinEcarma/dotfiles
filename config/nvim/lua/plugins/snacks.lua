@@ -1,10 +1,7 @@
 return {
 	{
 		"folke/snacks.nvim",
-		dependencies = {
-			-- "nvim-mini/mini.icons"
-			"nvim-tree/nvim-web-devicons",
-		},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		priority = 1000,
 		lazy = false,
 
@@ -54,16 +51,9 @@ return {
 			},
 			quickfile = { enabled = true },
 			scope = { enabled = false },
-			scroll = { enabled = true },
+			-- scroll = { enabled = true },
 			statuscolumn = { enabled = true },
 			words = { enabled = true },
 		},
-	},
-	{
-		dir = vim.fn.stdpath("config"),
-		name = "sessions",
-		config = function()
-			require("utils.sessions").setup()
-		end,
 	},
 }

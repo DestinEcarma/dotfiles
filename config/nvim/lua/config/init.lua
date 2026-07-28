@@ -56,15 +56,11 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Shell
-if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then
-	vim.opt.shell = "pwsh"
-end
+if vim.fn.has("win32") == 1 or vim.fn.has("win64") == 1 then vim.opt.shell = "pwsh" end
 
 -- Backup
 local undodir = vim.fn.stdpath("cache") .. "/undo"
-if vim.fn.isdirectory(undodir) == 0 then
-	vim.fn.mkdir(undodir)
-end
+if vim.fn.isdirectory(undodir) == 0 then vim.fn.mkdir(undodir, "p") end
 
 vim.opt.backup = false
 vim.opt.writebackup = false

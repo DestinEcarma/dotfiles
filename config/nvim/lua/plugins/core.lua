@@ -4,25 +4,6 @@ return {
 		event = "User LazyFile",
 	},
 	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = function()
-			local npairs = require("nvim-autopairs")
-
-			npairs.setup({})
-
-			local rule = require("nvim-autopairs.rule")
-			local ts_conds = require("nvim-autopairs.ts-conds")
-
-			npairs.add_rules({
-				rule("then", "end", "lua"):with_pair(ts_conds.is_not_ts_node({ "string", "comment" })),
-				rule("function.*%(.*%)$", "end", "lua")
-					:with_pair(ts_conds.is_not_ts_node({ "string", "comment" }))
-					:use_regex(true),
-			})
-		end,
-	},
-	{
 		"christoomey/vim-tmux-navigator",
 		cmd = {
 			"TmuxNavigateLeft",

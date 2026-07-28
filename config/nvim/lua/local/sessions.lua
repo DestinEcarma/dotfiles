@@ -52,21 +52,15 @@ local function delete_session(picker, item)
 		items = item and { item } or {}
 	end
 
-	if vim.tbl_isempty(items) then
-		return
-	end
+	if vim.tbl_isempty(items) then return end
 
 	vim.ui.select({ "Yes", "No" }, {
 		prompt = ("Delete %d session(s)?"):format(#items),
 	}, function(choice)
-		if choice ~= "Yes" then
-			return
-		end
+		if choice ~= "Yes" then return end
 
 		for _, entry in ipairs(items) do
-			if entry.file then
-				vim.fn.delete(entry.file)
-			end
+			if entry.file then vim.fn.delete(entry.file) end
 		end
 
 		Snacks.notify.info(("Deleted %d session(s)"):format(#items), {
@@ -86,27 +80,19 @@ function M.delete_old_sessions(max_age_days)
 	local max_age_seconds = max_age_days * 24 * 60 * 60
 
 	local fd = uv.fs_scandir(M.config.session_dir)
-	if not fd then
-		return
-	end
+	if not fd then return end
 
 	while true do
 		local name, ftype = uv.fs_scandir_next(fd)
-		if not name then
-			break
-		end
+		if not name then break end
 
 		-- Skip anything that isn't a *.vim file (fixes original inverted logic).
-		if ftype ~= "file" or not name:match("%.vim$") then
-			goto continue
-		end
+		if ftype ~= "file" or not name:match("%.vim$") then goto continue end
 
 		local path = M.config.session_dir .. name
 		local stat = uv.fs_stat(path)
 
-		if stat and stat.mtime and (now - stat.mtime.sec) > max_age_seconds then
-			uv.fs_unlink(path)
-		end
+		if stat and stat.mtime and (now - stat.mtime.sec) > max_age_seconds then uv.fs_unlink(path) end
 
 		::continue::
 	end
@@ -117,15 +103,11 @@ end
 local function get_session_items()
 	local items = {}
 	local fd = uv.fs_scandir(M.config.session_dir)
-	if not fd then
-		return items
-	end
+	if not fd then return items end
 
 	while true do
 		local name, ftype = uv.fs_scandir_next(fd)
-		if not name then
-			break
-		end
+		if not name then break end
 
 		if ftype == "file" and name:sub(-4) == ".vim" then
 			local file = M.config.session_dir .. name
@@ -148,9 +130,7 @@ local function get_session_items()
 		end
 	end
 
-	table.sort(items, function(a, b)
-		return a.filename < b.filename
-	end)
+	table.sort(items, function(a, b) return a.filename < b.filename end)
 
 	return items
 end
@@ -174,9 +154,7 @@ function M.session_list()
 		format = session_list_format,
 		layout = "select",
 		actions = {
-			delete_session = function(picker, item)
-				delete_session(picker, item)
-			end,
+			delete_session = function(picker, item) delete_session(picker, item) end,
 		},
 		win = {
 			list = {
