@@ -10,7 +10,7 @@ local diagnostic_goto = function(next, severity)
 end
 
 return {
-	{ "echasnovski/mini.nvim", lazy = true },
+	{ "nvim-tree/nvim-web-devicons", lazy = true },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",

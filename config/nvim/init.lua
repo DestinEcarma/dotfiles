@@ -1,6 +1,7 @@
 -- Core Config
-require("config")
+require("config.options")
 require("config.autocmd")
+require("config.commands")
 require("config.theme")
 
 -- Local Plugins

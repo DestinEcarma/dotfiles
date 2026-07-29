@@ -5,7 +5,7 @@ theme = "Catppuccin Mocha"
 ########
 
 font-family = "CaskaydiaCove Nerd Font"
-font-size = 12
+font-size = 14
 
 keybind = performable:ctrl+tab=unbind
 keybind = performable:ctrl+shift+tab=unbind
