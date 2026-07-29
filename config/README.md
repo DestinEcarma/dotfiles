@@ -1,46 +1,61 @@
-# Config
+# Configuration Files
 
-On this directory, contains all of the configuration files. This is a collection of my personal configuration files for my system. This is a work in progress and will be updated as I go along.
+This directory contains my personal application and desktop configuration files. The setup is a work in progress and may change as my workflow evolves.
 
 ## Prerequisites
 
-This section are a prerequisite tools for each configuration file.
+Install the applications below for their corresponding configuration files to work correctly.
 
+- [`alacritty`](https://github.com/alacritty/alacritty)
 - [`fastfetch`](https://github.com/fastfetch-cli/fastfetch)
-- [`hypr`](https://github.com/hyprwm/Hyprland)
-    - [`nautilus`](https://github.com/GNOME/nautilus) - This is what is set on the **key bindings** for `MOD + E`. You can use any file manager that you prefer.
-    - [`gnome-polkit`](https://gitlab.gnome.org/Archive/policykit-gnome) - You can use any polkit agent that you prefer.
-    - [`hyprshot`](https://github.com/Gustash/Hyprshot) - This will serve as the screenshot utility.
-    - [`awww`](https://codeberg.org/LGFae/awww)
-    - [`waypaper`](https://github.com/anufrievroman/waypaper)
-- [`kitty`](https://github.com/kovidgoyal/kitty) - `hyprland` uses `kitty` as the default terminal emulator. You can change this to your preferred terminal emulator. This is just my personal config.
 - [`ghostty`](https://github.com/ghostty-org/ghostty)
-- [`nvim`](https://github.com/neovim/neovim)
-    - [`fd`](https://github.com/sharkdp/fd)
-    - [`ripgrep`](https://github.com/BurntSushi/ripgrep)
-    - Please run the `checkhealth` command on `neovim` to check for more information for missing dependencies.
+- [`kitty`](https://github.com/kovidgoyal/kitty)
+- [`matugen`](https://github.com/InioX/matugen)
+- [`neovim`](https://github.com/neovim/neovim)
+    - Run `:checkhealth` in Neovim to identify any missing dependencies.
 - [`rofi`](https://github.com/davatorium/rofi)
     - [`rofi-calc`](https://github.com/svenstaro/rofi-calc)
+- [`swaync`](https://github.com/ErikReider/SwayNotificationCenter)
+- [`swayosd`](https://github.com/ErikReider/SwayOSD)
+- [`tmux`](https://github.com/tmux/tmux)
 - [`waybar`](https://github.com/Alexays/Waybar)
     - [`wlctl`](https://github.com/aashish-thapa/wlctl)
     - [`bluetui`](https://github.com/pythops/impala)
     - [`wiremix`](https://github.com/tsowell/wiremix)
-- [`wlogout`](https://github.com/ArtsyMacaw/wlogout) - This is is used by `waybar`.
-- [`tmux`](https://github.com/tmux/tmux)
-- [`swaync`](https://github.com/ErikReider/SwayNotificationCenter)
-- [`swayosd`](https://github.com/ErikReider/SwayOSD)
-- [`matugen`](https://github.com/InioX/matugen)
+- [`wlogout`](https://github.com/ArtsyMacaw/wlogout)
 
-## Recommended
+### Hyprland
 
-This section are the recommended tools to have, currently I am using `hyprland` as my window manager. Installing `hyprland` on a minimal installation of `arch` can be a bit tricky and time consuming. So this will be the list of tools that I used to work with `hyprland`.
+The [`Hyprland`](https://github.com/hyprwm/Hyprland) configuration also expects the following tools:
 
-- `pipewire` - This is for audio support.
-- `bluez` - This is for bluetooth support.
-- `networkmanager` - This is for network support.
-- `xdg-desktop-portal-hyprland`
-- `xdg-desktop-portal-gtk` - Since I use a lot of `gtk` applications, I need to have this installed.
-- `nwg-look` - This is for managing the themes and icons for `gtk` applications.
-- `sddm` - This is for the display manager. You can use any display manager that you prefer.
+- [`nautilus`](https://github.com/GNOME/nautilus) — launched with `SUPER + E`; replace it with any file manager you prefer.
+- [`gnome-polkit`](https://gitlab.gnome.org/Archive/policykit-gnome) — replaceable with another Polkit authentication agent.
+- [`hyprshot`](https://github.com/Gustash/Hyprshot) — screenshot utility.
+- [`awww`](https://codeberg.org/LGFae/awww) — wallpaper daemon.
+- [`paper-tui`](https://github.com/DestinEcarma/paper-tui) — wallpaper manager.
 
-Some of this tools are still needed to be manually start on `systemctl` or enable on startup.
+> **Note:** Kitty is configured as Hyprland's default terminal emulator. Update the Hyprland configuration if you prefer another terminal.
+
+## Recommended System Packages
+
+These packages are recommended for a functional Hyprland desktop environment:
+
+- `pipewire` — audio support.
+- `bluez` — Bluetooth support.
+- `networkmanager` — network management.
+- `xdg-desktop-portal-hyprland` — desktop portal support for Hyprland.
+- `xdg-desktop-portal-gtk` — portal support for GTK applications.
+- `nwg-look` — GTK theme and icon configuration.
+- `sddm` — display manager; you may use an alternative.
+
+## Services
+
+Some packages require their system services to be enabled manually. For example:
+
+```sh
+sudo systemctl enable --now NetworkManager
+sudo systemctl enable --now bluetooth
+sudo systemctl enable --now sddm
+```
+
+Enable only the services that apply to your system.
