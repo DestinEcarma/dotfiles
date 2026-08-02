@@ -16,8 +16,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, lhs, rhs, opts)
 		end
 
-		print(client.name)
-
         -- LSP keymaps
         -- stylua: ignore start
         map("n", "gd", function() Snacks.picker.lsp_definitions() end, "Goto Definition") map("n", "gr", function() Snacks.picker.lsp_references() end, "References", { nowait = true })
