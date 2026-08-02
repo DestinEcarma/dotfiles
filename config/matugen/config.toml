@@ -1,8 +1,8 @@
 [config]
 
 [templates.hyprland]
-input_path = "~/.config/matugen/templates/hyprland.conf"
-output_path = "~/.config/hypr/colors.conf"
+input_path = "~/.config/matugen/templates/hyprland.lua"
+output_path = "~/.config/hypr/hyprland/colors.lua"
 
 [templates.wlogout]
 input_path = "~/.config/matugen/templates/colors.css"
