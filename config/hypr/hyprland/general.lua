@@ -33,13 +33,6 @@ hl.config({
 			color = "rgba(00000020)",
 		},
 	},
-	input = {
-		follow_mouse = 1,
-		sensitivity = -0.75,
-		touchpad = {
-			natural_scroll = true,
-		},
-	},
 	misc = {
 		disable_hyprland_logo = true,
 		disable_splash_rendering = true,
@@ -51,6 +44,9 @@ hl.config({
 	ecosystem = {
 		-- I'm broke
 		no_donation_nag = true,
+	},
+	cursor = {
+		no_hardware_cursors = true,
 	},
 })
 
