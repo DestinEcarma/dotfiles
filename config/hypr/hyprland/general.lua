@@ -45,9 +45,6 @@ hl.config({
 		-- I'm broke
 		no_donation_nag = true,
 	},
-	cursor = {
-		no_hardware_cursors = true,
-	},
 })
 
 local success, colors = pcall(require, "hyprland.colors")
