@@ -114,8 +114,8 @@ hl.bind("SUPER + Left", hl.dsp.window.resize({ x = -10, y = 0, relative = true }
 hl.bind("SUPER + Up", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
 hl.bind("SUPER + Down", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
 
-hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { drag = true })
-hl.bind("SUPER + SHIFT + mouse:272", hl.dsp.window.resize(), { drag = true })
+hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind("SUPER + SHIFT + mouse:272", hl.dsp.window.resize(), { mouse = true })
 
 hl.bind("ALT + TAB", window_cycle_next)
 -- TODO: figure out for cycling previous, `{ next = false }` does not work
