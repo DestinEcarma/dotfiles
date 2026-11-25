@@ -334,7 +334,7 @@ Item {
                     color: Colors.textOnSurface
                 }
 
-                TextField {
+                StyledTextField {
                     id: passwordField
                     Layout.fillWidth: true
                     echoMode: TextInput.Password

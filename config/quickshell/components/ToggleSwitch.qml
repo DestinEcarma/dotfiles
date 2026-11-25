@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Controls
 
 import qs.config
-import qs.components
 
 Switch {
     id: control
