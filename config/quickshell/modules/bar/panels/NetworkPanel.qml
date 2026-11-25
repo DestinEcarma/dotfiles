@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import Quickshell.Networking
 
 import qs.config
+import qs.components
 import qs.modules.components
 import qs.services
 

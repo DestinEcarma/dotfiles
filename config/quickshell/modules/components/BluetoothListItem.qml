@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import Quickshell.Bluetooth
 
 import qs.config
+import qs.components
 
 ItemDelegate {
     id: root

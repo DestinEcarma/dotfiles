@@ -3,6 +3,7 @@ import QtQuick
 import Quickshell
 
 import qs.config
+import qs.components
 import qs.modules.bar.powermenu
 import qs.modules.components
 

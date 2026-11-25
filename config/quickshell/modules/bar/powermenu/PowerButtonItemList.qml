@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 
 import qs.config
+import qs.components
 import qs.modules.components
 
 ColumnLayout {

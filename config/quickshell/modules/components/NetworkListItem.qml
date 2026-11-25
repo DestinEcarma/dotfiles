@@ -5,6 +5,7 @@ import QtQuick.Layouts
 import Quickshell.Networking
 
 import qs.config
+import qs.components
 
 ItemDelegate {
     id: root

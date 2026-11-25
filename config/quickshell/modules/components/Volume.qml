@@ -4,6 +4,7 @@ import QtQuick.Layouts
 import Quickshell.Services.Pipewire
 
 import qs.config
+import qs.components
 
 Rectangle {
     id: root
