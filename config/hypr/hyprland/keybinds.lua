@@ -46,10 +46,7 @@ hl.bind("SUPER + SHIFT + T", hl.dsp.exec_cmd("kitty --class float -e dooit"))
 hl.bind("SUPER + SHIFT + V", hl.dsp.exec_cmd("kitty --class float -e clipse"))
 hl.bind("SUPER + SHIFT + W", hl.dsp.exec_cmd("kitty --class float -e paper-tui"))
 
--- stylua: ignore start
 hl.bind("SUPER + Space", hl.dsp.exec_cmd("qs ipc call launcher toggle"))
-hl.bind( "SUPER + C", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-show-match -no-sort -theme ~/.config/rofi/themes/calc.rasi"))
--- stylua: ignore end
 
 hl.bind("SUPER + E", hl.dsp.exec_cmd("nautilus"))
 
