@@ -11,7 +11,7 @@ RectangularShadow {
 
     z: -1
     opacity: hovered ? 1 : 0
-    visible: _renderVisible
+    visible: !Config.gaming && _renderVisible
     blur: Config.shadowBlur
     spread: 0
     color: Config.shadowColor
@@ -35,6 +35,7 @@ RectangularShadow {
     }
 
     Behavior on opacity {
+        enabled: !Config.gaming
         NumberAnimation {
             duration: Config.animationFast
         }

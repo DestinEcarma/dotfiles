@@ -77,6 +77,7 @@ ItemDelegate {
         }
 
         Behavior on color {
+            enabled: !Config.gaming
             ColorAnimation {
                 duration: Config.animationFast
             }

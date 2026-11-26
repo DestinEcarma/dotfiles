@@ -21,6 +21,7 @@ Rectangle {
     color: selected ? Colors.primaryContainer : mouseArea.containsMouse ? Colors.surfaceContainerHigh : "transparent"
 
     Behavior on color {
+        enabled: !Config.gaming
         ColorAnimation {
             duration: Config.animationNormal
         }
@@ -62,6 +63,7 @@ Rectangle {
             }
 
             Behavior on color {
+                enabled: !Config.gaming
                 ColorAnimation {
                     duration: Config.animationNormal
                 }
@@ -81,6 +83,7 @@ Rectangle {
                 elide: Text.ElideRight
 
                 Behavior on color {
+                    enabled: !Config.gaming
                     ColorAnimation {
                         duration: Config.animationNormal
                     }

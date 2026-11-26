@@ -55,6 +55,7 @@ Item {
             opacity: root.expanded ? 0 : 1
 
             Behavior on opacity {
+                enabled: !Config.gaming
                 NumberAnimation {
                     duration: Config.animationNormal
                 }
@@ -70,6 +71,7 @@ Item {
             opacity: root.expanded ? 1 : 0
 
             Behavior on opacity {
+                enabled: !Config.gaming
                 NumberAnimation {
                     duration: Config.animationNormal
                 }
@@ -77,18 +79,21 @@ Item {
         }
 
         Behavior on implicitWidth {
+            enabled: !Config.gaming
             NumberAnimation {
                 duration: Config.animationNormal
                 easing.type: Config.easingStandard
             }
         }
         Behavior on implicitHeight {
+            enabled: !Config.gaming
             NumberAnimation {
                 duration: Config.animationNormal
                 easing.type: Config.easingStandard
             }
         }
         Behavior on radius {
+            enabled: !Config.gaming
             NumberAnimation {
                 duration: Config.animationNormal
             }

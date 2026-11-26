@@ -4,8 +4,12 @@ import QtQuick
 
 import Quickshell
 
+import qs.services
+
 Singleton {
     id: root
+
+    property bool gaming: GamingMode.enabled
 
     // ------------------------------------------------------------------
     // Spacing scale

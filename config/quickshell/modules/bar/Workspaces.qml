@@ -91,6 +91,7 @@ Item {
                             }
 
                             Behavior on opacity {
+                                enabled: !Config.gaming
                                 NumberAnimation {
                                     duration: Config.animationFast
                                 }
@@ -98,6 +99,7 @@ Item {
                         }
 
                         Behavior on color {
+                            enabled: !Config.gaming
                             ColorAnimation {
                                 duration: Config.animationFast
                             }
@@ -108,6 +110,7 @@ Item {
         }
 
         Behavior on implicitWidth {
+            enabled: !Config.gaming
             NumberAnimation {
                 duration: Config.animationNormal
                 easing.type: Config.easingStandard

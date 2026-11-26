@@ -32,12 +32,14 @@ Switch {
                 color: control.checked ? Colors.textOnSecondary : Colors.textOnSurface
 
                 Behavior on x {
+                    enabled: !Config.gaming
                     NumberAnimation {
                         duration: Config.animationFast
                     }
                 }
 
                 Behavior on color {
+                    enabled: !Config.gaming
                     ColorAnimation {
                         duration: Config.animationFast
                     }
@@ -45,6 +47,7 @@ Switch {
             }
 
             Behavior on color {
+                enabled: !Config.gaming
                 ColorAnimation {
                     duration: Config.animationFast
                 }

@@ -6,6 +6,7 @@ import qs.config
 RectangularShadow {
     z: -1
     opacity: 1
+    visible: !Config.gaming
     blur: Config.shadowBlur
     spread: 0
     color: Config.shadowColor

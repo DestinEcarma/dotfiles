@@ -377,6 +377,7 @@ Item {
                 }
 
                 Behavior on height {
+                    enabled: !Config.gaming
                     NumberAnimation {
                         duration: Config.animationFast
                     }
@@ -482,6 +483,7 @@ Item {
         }
 
         Behavior on opacity {
+            enabled: !Config.gaming
             NumberAnimation {
                 duration: Config.animationFast
             }

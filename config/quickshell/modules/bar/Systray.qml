@@ -169,6 +169,7 @@ Item {
                     }
 
                     Behavior on implicitWidth {
+                        enabled: !Config.gaming
                         NumberAnimation {
                             duration: Config.animationNormal
                             easing.type: Config.easingStandard
@@ -176,6 +177,7 @@ Item {
                     }
 
                     Behavior on implicitHeight {
+                        enabled: !Config.gaming
                         NumberAnimation {
                             duration: Config.animationNormal
                             easing.type: Config.easingStandard

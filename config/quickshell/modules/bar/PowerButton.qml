@@ -29,6 +29,7 @@ Item {
         color: mouseArea.containsMouse ? Colors.surfaceContainerHighest : Colors.background
 
         Behavior on color {
+            enabled: !Config.gaming
             ColorAnimation {
                 duration: Config.animationFast
             }
@@ -45,6 +46,7 @@ Item {
         color: Colors.textOnSurface
 
         Behavior on color {
+            enabled: !Config.gaming
             ColorAnimation {
                 duration: Config.animationFast
             }

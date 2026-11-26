@@ -5,6 +5,8 @@
 local function toggle_game_mode()
 	local game_mode = (hl.get_config("animations.enabled") == false)
 
+	hl.exec_cmd("qs ipc call gaming_mode toggle")
+
 	if game_mode then
 		hl.exec_cmd("hyprctl reload")
 		return
