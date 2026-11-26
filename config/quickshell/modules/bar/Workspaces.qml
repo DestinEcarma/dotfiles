@@ -27,7 +27,7 @@ Item {
     Rectangle {
         id: workspaces
 
-        readonly property int rawWidth: contentRow.implicitWidth + Config.spacingXS * 2
+        readonly property int rawWidth: Math.max(contentRow.implicitWidth + Config.spacingXS * 2, 30)
 
         implicitWidth: rawWidth
         implicitHeight: 30

@@ -41,11 +41,10 @@ Item {
                 Rectangle {
                     id: tray
 
-                    readonly property int rawWidth: Math[root.selectedTrayItem ? "max" : "min"](contentRow.implicitWidth, trayMenu.implicitWidth) + Config.spacingXS * 2
+                    readonly property int rawWidth: Math.max(Math[root.selectedTrayItem ? "max" : "min"](contentRow.implicitWidth, trayMenu.implicitWidth) + Config.spacingXS * 2, 30)
 
                     implicitWidth: rawWidth
-                    implicitHeight: 30 + (root.selectedTrayItem && trayMenu.implicitHeight)
-
+                    implicitHeight: root.selectedTrayItem ? 30 + trayMenu.implicitHeight : 30
                     radius: 15
                     color: Colors.background
                     clip: true
@@ -89,9 +88,7 @@ Item {
                                     }
 
                                     Image {
-                                        anchors.centerIn: parent
-                                        width: parent.width
-                                        height: parent.height
+                                        anchors.fill: parent
                                         source: trayItem.modelData.icon
                                     }
                                 }
@@ -104,25 +101,24 @@ Item {
                         implicitWidth: 240
 
                         implicitHeight: menuColumn.implicitHeight + Config.spacingS
-                        anchors.fill: parent
 
                         visible: root.selectedTrayItem !== null && root.selectedTrayItem.hasMenu
 
-                        readonly property QsMenuOpener menuOpener: QsMenuOpener {
-                            menu: root.selectedTrayItem ? root.selectedTrayItem.menu : null
+                        QsMenuOpener {
+                            id: menuOpener
+                            menu: root.selectedTrayItem?.menu ?? null
                         }
 
                         ColumnLayout {
                             id: menuColumn
                             anchors.margins: Config.spacingS
                             anchors.top: parent.top
-                            anchors.topMargin: 30
-
                             anchors.left: parent.left
                             anchors.right: parent.right
+                            anchors.topMargin: 30
 
                             Repeater {
-                                model: trayMenu.menuOpener.children
+                                model: menuOpener.children
                                 delegate: ItemDelegate {
                                     id: menuItem
 
@@ -141,10 +137,12 @@ Item {
                                     }
 
                                     contentItem: RowLayout {
+                                        anchors.fill: parent
                                         spacing: Config.spacingS
+                                        anchors.leftMargin: Config.spacingS
+                                        anchors.rightMargin: Config.spacingS
 
                                         Image {
-                                            anchors.verticalCenter: parent.verticalCenter
                                             Layout.preferredWidth: 20
                                             Layout.preferredHeight: 20
                                             source: menuItem.modelData.icon
@@ -153,7 +151,6 @@ Item {
 
                                         StyledText {
                                             id: text
-                                            anchors.verticalCenter: parent.verticalCenter
                                             Layout.fillWidth: true
                                             text: menuItem.modelData.text
                                             font.pixelSize: Config.fontSizeS
