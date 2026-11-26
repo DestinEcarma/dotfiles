@@ -9,13 +9,22 @@ import qs.services
 Item {
     id: root
 
-    property bool expanded: FocusService.grab?.active ?? false
+    property bool expanded: false
 
     readonly property int collapsedWidth: 120
     readonly property int collapsedHeight: 30
 
     implicitWidth: island.implicitWidth
     implicitHeight: island.implicitHeight
+
+    Connections {
+        target: FocusService.grab
+
+        function onActiveChanged() {
+            if (FocusService.grab.active === false)
+                root.expanded = false;
+        }
+    }
 
     Rectangle {
         id: island
@@ -35,8 +44,8 @@ Item {
                 if (expandedContent.active === false)
                     expandedContent.active = true;
 
-                if (FocusService.grab && !FocusService.grab.active)
-                    FocusService.requestFocus();
+                root.expanded = true;
+                FocusService.requestFocus();
             }
         }
 

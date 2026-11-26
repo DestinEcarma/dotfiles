@@ -55,6 +55,7 @@ PanelWindow {
 
                 Workspaces {
                     id: workspaces
+                    Layout.alignment: Qt.AlignTop
                 }
 
                 Systray {
