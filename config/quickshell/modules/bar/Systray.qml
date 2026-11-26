@@ -99,9 +99,7 @@ Item {
                     Item {
                         id: trayMenu
                         implicitWidth: 240
-
                         implicitHeight: menuColumn.implicitHeight + Config.spacingS
-
                         visible: root.selectedTrayItem !== null && root.selectedTrayItem.hasMenu
 
                         QsMenuOpener {
@@ -111,11 +109,12 @@ Item {
 
                         ColumnLayout {
                             id: menuColumn
-                            anchors.margins: Config.spacingS
                             anchors.top: parent.top
                             anchors.left: parent.left
                             anchors.right: parent.right
+                            anchors.margins: Config.spacingS
                             anchors.topMargin: 30
+                            spacing: 0
 
                             Repeater {
                                 model: menuOpener.children
@@ -125,7 +124,7 @@ Item {
                                     required property QsMenuEntry modelData
 
                                     Layout.fillWidth: true
-                                    Layout.preferredHeight: modelData.isSeparator ? 1 : Config.fontSizeS + Config.spacingS
+                                    Layout.preferredHeight: modelData.isSeparator ? 1 : Config.fontSizeM + Config.spacingM
 
                                     enabled: modelData.enabled
 
@@ -133,7 +132,7 @@ Item {
                                         Layout.fillWidth: true
                                         Layout.fillHeight: true
                                         radius: Config.radiusXS
-                                        color: menuItem.modelData.isSeparator ? Colors.primary : menuItem.hovered ? Colors.surfaceContainerHighest : "transparent"
+                                        color: menuItem.modelData.isSeparator ? Colors.surfaceContainerHighest : menuItem.hovered ? Colors.surfaceContainerHighest : "transparent"
                                     }
 
                                     contentItem: RowLayout {
